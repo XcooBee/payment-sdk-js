@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": ["es2016", "dom", "es5"]
+  },
+  "files": ["src/browser.ts"],
+  "exclude": ["node_modules"]
+}
