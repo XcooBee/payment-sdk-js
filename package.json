@@ -12,9 +12,12 @@
   "bugs": {
     "url": "https://github.com/XcooBee/payment-sdk-js/issues"
   },
-  "main": "index.js",
+  "main": "dist/node/node.js",
+  "module": "dist/node/node.js",
+  "browser": "dist/browser/browser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "start": "tsc && tsc -p tsconfig.browser.json"
   },
   "files": [
@@ -27,8 +30,19 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.13",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
     "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
     "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "easyqrcodejs": "^3.7.0",
+    "easyqrcodejs-nodejs": "^3.6.0"
   }
 }

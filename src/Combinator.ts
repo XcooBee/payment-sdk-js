@@ -1,19 +1,15 @@
-import Builder from "./Builder";
+import { Builder } from "./Builder";
 
 import { flexPaymentActions } from "./config";
 
-class Combinator {
-  static getKey(item: Builder): string {
-    return `${item.reference}${item.amount}`;
-  }
-
+export class Combinator {
   static combine(items: Builder[]): Builder[] {
     const map = {};
-    let tip;
-    let total;
+    let tip: Builder;
+    let total: Builder;
 
     items.forEach((item) => {
-      map[Combinator.getKey(item)] = item;
+      map[item.getKey()] = item;
       if (item.hasAction(flexPaymentActions.setTip)) {
         tip = item;
       }
@@ -26,5 +22,9 @@ class Combinator {
       return [tip, total].filter(Boolean);
     }
     return Object.keys(map).map((key) => map[key]);
+  }
+
+  static combineToJSON(items: Builder[]): string {
+    return JSON.stringify(Combinator.combine(items));
   }
 }

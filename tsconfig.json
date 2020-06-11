@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": false,
     "strict": true,
     "target": "es6",
+    "moduleResolution": "node",
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "./dist/node",
     "sourceMap": true
   },
   "files": ["src/node.ts"],

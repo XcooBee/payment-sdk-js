@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
     "strict": true,
     "baseUrl": ".",
-    "outDir": "./dist",
+    "outDir": "./dist/browser",
     "target": "es5",
     "module": "es2015",
-    "moduleResolution": "node",
     "lib": ["es2016", "dom", "es5"]
   },
   "files": ["src/browser.ts"],
