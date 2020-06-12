@@ -24,7 +24,7 @@ You can also provide your own qrGenerator:
 // Web
 
 import { base64 } from "@xcoobee/payment-sdk-js";
-import { XcoobeePaymentSDK } from "@xcoobee/payment-sdk-js/XcoobeePaymentSDK";
+import { XcoobeePaymentSDK } from "@xcoobee/payment-sdk-js/dist/XcoobeePaymentSDK";
 
 const myVeryOwnQrGenerator = {
     generate: (string) => any // this method is used to generate QRs internaly
@@ -43,7 +43,7 @@ const sdk = new XcoobeePaymentSDK({
 // Node
 
 const { base64 } = require("@xcoobee/payment-sdk-js");
-const { XcoobeePaymentSDK } = require("@xcoobee/payment-sdk-js/XcoobeePaymentSDK");
+const { XcoobeePaymentSDK } = require("@xcoobee/payment-sdk-js/dist/XcoobeePaymentSDK");
 
 const myVeryOwnQrGenerator = {
     generate: (string) => any // this method is used to generate QRs internaly
