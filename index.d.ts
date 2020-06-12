@@ -27,14 +27,14 @@ export type flexItemType = {
   "0-3"?: number;
   "0-5"?: number;
   "0-6"?: string;
-  l?: flexLogicType[];
+  l?: flexLogicType | flexLogicType[];
 };
 
 export type flexItemHumanizedType = {
   amount?: number;
   tax?: number;
   reference?: string;
-  logic?: flexLogicType[];
+  logic?: flexLogicType | flexLogicType[];
 };
 
 export type simpleListType = string[];
@@ -60,3 +60,5 @@ export type listPayUrlConfigType = defaultPayUrlConfigType & { options: simpleLi
 export type listWithCostPayUrlConfigType = defaultPayUrlConfigType & {
   options: listWithCostType;
 };
+
+export type qrType = string | Promise<string>;

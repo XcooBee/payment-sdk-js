@@ -1,8 +1,8 @@
-import QrGenerator from "easyqrcodejs";
-
 import { paymentSdkConfigType } from "../index";
 
-import { XcoobeePaymentSDK } from "./XcoobeePaymentSDK";
+import { XcooBeePaymentSDK } from "./XcooBeePaymentSDK";
+
+import { logoSrc } from "./config";
 
 const base64 = {
   atob: (str: string): string => atob(str),
@@ -11,6 +11,16 @@ const base64 = {
 
 const qrGenerator = {
   generate: (url: string, size: number): string => {
+    let QrCode;
+    try {
+      // tslint:disable-next-line:no-var-requires
+      QrCode = require("easyqrcodejs");
+    } catch (e) {
+      // tslint:disable-next-line no-console
+      console.warn("Optional dependency easyqrcodejs was not installed");
+      return "";
+    }
+
     const root = document.createElement("div");
 
     root.style.position = "absolute";
@@ -19,14 +29,14 @@ const qrGenerator = {
     root.style.opacity = "0";
     document.body.appendChild(root);
 
-    const qr = new QrGenerator(root, {
+    const qr = new QrCode(root, {
       text: url,
       width: size,
       height: size,
       logoWidth: size * 0.12,
       logoHeight: size * 0.12,
-      logo: "/logo-circle.svg",
-      correctLevel: QrGenerator.CorrectLevel.M,
+      logo: logoSrc,
+      correctLevel: QrCode.CorrectLevel.M,
     });
     const img = root.querySelector("img");
     let base64Img = "";
@@ -40,7 +50,7 @@ const qrGenerator = {
   },
 };
 
-export class BrowserXcoobeePaymentSDK extends XcoobeePaymentSDK {
+export class BrowserXcooBeePaymentSDK extends XcooBeePaymentSDK {
   constructor(config: paymentSdkConfigType) {
     super(config, base64, qrGenerator);
   }

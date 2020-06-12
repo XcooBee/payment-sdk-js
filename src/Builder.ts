@@ -7,14 +7,7 @@ import {
   simpleListType,
 } from "../index";
 
-import {
-  conflictingActions,
-  flexPaymentActions,
-  maxAmount,
-  maxRefSize,
-  minAmount,
-  optionsLimit,
-} from "./config";
+import { conflictingActions, flexPaymentActions, maxAmount, maxRefSize, minAmount, optionsLimit } from "./config";
 
 export class Builder {
   private amount?: number;
@@ -113,7 +106,11 @@ export class Builder {
     this.tax = config.tax;
     this.reference = config.reference;
 
-    (config.logic || []).forEach((item) => this.addLogic(item));
+    if (config.logic) {
+      (Array.isArray(config.logic) ? config.logic : [config.logic]).forEach((item) =>
+        this.addLogic(item)
+      );
+    }
   }
 
   getKey(): string {
@@ -135,12 +132,17 @@ export class Builder {
     return this;
   }
 
-  fromRaw(config: flexItemType) {
+  fromRaw(config: flexItemType): Builder {
     this.amount = config["0-3"];
     this.tax = config["0-5"];
     this.reference = config["0-6"];
 
-    (config.l || []).forEach((item) => this.addLogic(item));
+    if (config.l) {
+      (Array.isArray(config.l) ? config.l : [config.l]).forEach((item) =>
+        this.addLogic(item)
+      );
+    }
+    return this;
   }
 
   hasAction(action: flexPaymentActions) {
@@ -169,6 +171,7 @@ export class Builder {
     }
     if (!this.reference) {
       if (
+        this.logic.length &&
         !(
           this.hasAction(flexPaymentActions.externalPricing) ||
           this.hasAction(flexPaymentActions.setTip) ||
@@ -190,6 +193,17 @@ export class Builder {
       throw new Error(err);
     }
 
+    if (item.a === flexPaymentActions.setTip) {
+      this.logic = [{ a: flexPaymentActions.setTip }];
+      return this;
+    }
+
+    if (this.hasAction(flexPaymentActions.setTip)) {
+      this.logic = this.logic.filter(
+        (logicItem: flexLogicType) => logicItem.a !== flexPaymentActions.setTip
+      );
+    }
+
     if (
       conflictingActions.indexOf(item.a) !== -1 &&
       this.logic.some((logicItem) => conflictingActions.indexOf(logicItem.a) !== -1)
@@ -198,7 +212,15 @@ export class Builder {
         (logicItem) => conflictingActions.indexOf(logicItem.a) === -1
       );
     }
-    this.logic = [...this.logic.filter((logicItem) => logicItem.a !== item.a), item];
+    this.logic = [
+      ...(item.r ? this.logic.filter((logicItem) => logicItem.r !== item.r) : this.logic),
+      item,
+    ];
+    return this;
+  }
+
+  clearLogic(): Builder {
+    this.logic = [];
     return this;
   }
 
@@ -218,12 +240,30 @@ export class Builder {
     return this.addLogic({ a: flexPaymentActions.externalPricing, r: priceCode });
   }
 
-  addPercentageOrMin(percentage: number, min: number): Builder {
-    return this.addLogic({ a: flexPaymentActions.addMinOrFixed, o: percentage, m: min });
+  addPercentageOrMin(config: {
+    reference: string;
+    percentage?: number;
+    min?: number;
+  }): Builder {
+    return this.addLogic({
+      a: flexPaymentActions.addMinOrFixed,
+      r: config.reference,
+      o: config.percentage,
+      m: config.min,
+    });
   }
 
-  addPercentageOrMax(percentage: number, max: number): Builder {
-    return this.addLogic({ a: flexPaymentActions.addMaxOrFixed, o: percentage, M: max });
+  addPercentageOrMax(config: {
+    reference: string;
+    percentage?: number;
+    max?: number;
+  }): Builder {
+    return this.addLogic({
+      a: flexPaymentActions.addMaxOrFixed,
+      r: config.reference,
+      o: config.percentage,
+      M: config.max,
+    });
   }
 
   addRadio(options: simpleListType): Builder {
@@ -245,18 +285,35 @@ export class Builder {
     });
   }
 
-  toJSON(): string {
+  toJSON(): flexItemType {
     const err = this.validate();
 
     if (err) {
       throw new Error(err);
     }
 
-    return JSON.stringify({
-      "0-3": this.amount,
-      "0-5": this.tax,
-      "0-6": this.reference,
-      l: this.logic,
-    });
+    const data = {} as flexItemType;
+
+    if (
+      this.amount &&
+      !this.hasAction(flexPaymentActions.setTip) &&
+      !this.hasAction(flexPaymentActions.userEntry)
+    ) {
+      data["0-3"] = this.amount;
+    }
+    if (this.tax && !this.hasAction(flexPaymentActions.setTip)) {
+      data["0-5"] = this.tax;
+    }
+    if (this.reference && !this.hasAction(flexPaymentActions.setTip)) {
+      data["0-6"] = this.reference;
+    }
+    if (this.logic.length) {
+      data.l = this.logic;
+    }
+    if (this.logic.length === 1) {
+      data.l = this.logic[0];
+    }
+
+    return data;
   }
 }

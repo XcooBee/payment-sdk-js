@@ -5,6 +5,7 @@ import {
   listWithCostPayUrlConfigType,
   paymentSdkConfigType,
   QrGeneratorInterface,
+  qrType,
 } from "../index";
 
 import {
@@ -19,7 +20,7 @@ import {
 import { Builder } from "./Builder";
 import { Combinator } from "./Combinator";
 
-export class XcoobeePaymentSDK {
+export class XcooBeePaymentSDK {
   private readonly campaignId: string;
   private readonly formId: string;
   private readonly deviceId?: string;
@@ -115,7 +116,7 @@ export class XcoobeePaymentSDK {
     return this.getUrl([total]);
   }
 
-  createPayQr(config: defaultPayUrlConfigType, size: number = defaultQrSize): string {
+  createPayQr(config: defaultPayUrlConfigType, size: number = defaultQrSize): qrType {
     return this.getQrGenerator().generate(this.createPayUrl(config), size);
   }
 
@@ -133,7 +134,7 @@ export class XcoobeePaymentSDK {
   createPayQrWithTip(
     config: defaultPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(this.createPayUrlWithTip(config), size);
   }
 
@@ -150,7 +151,7 @@ export class XcoobeePaymentSDK {
   createSingleItemQr(
     config: defaultPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(this.createSingleItemUrl(config), size);
   }
 
@@ -167,7 +168,7 @@ export class XcoobeePaymentSDK {
   createSingleSelectQr(
     config: listPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(this.createSingleSelectUrl(config), size);
   }
 
@@ -184,7 +185,7 @@ export class XcoobeePaymentSDK {
   createSingleSelectWithCostQr(
     config: listWithCostPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(
       this.createSingleSelectWithCostUrl(config),
       size
@@ -204,7 +205,7 @@ export class XcoobeePaymentSDK {
   createMultiSelectQr(
     config: listPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(this.createMultiSelectUrl(config), size);
   }
 
@@ -221,7 +222,7 @@ export class XcoobeePaymentSDK {
   createMultiSelectWithCostQr(
     config: listWithCostPayUrlConfigType,
     size: number = defaultQrSize
-  ): string {
+  ): qrType {
     return this.getQrGenerator().generate(
       this.createMultiSelectWithCostUrl(config),
       size
@@ -234,7 +235,7 @@ export class XcoobeePaymentSDK {
     return this.getUrl([externalPricing]);
   }
 
-  createExternalReferenceQr(priceCode: string, size: number = defaultQrSize): string {
+  createExternalReferenceQr(priceCode: string, size: number = defaultQrSize): qrType {
     return this.getQrGenerator().generate(
       this.createExternalReferenceUrl(priceCode),
       size
