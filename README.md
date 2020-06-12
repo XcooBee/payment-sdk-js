@@ -160,3 +160,21 @@ tax: number
 reference: string
 priceCode: string
 ```
+
+## Deployment
+
+```
+npm start
+```
+
+## Tests
+
+```
+npm test
+```
+
+or 
+
+```
+npm run coverage
+```
