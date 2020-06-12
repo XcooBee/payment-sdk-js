@@ -5,7 +5,7 @@ import { flexPaymentActions } from "./src/config";
 
 export type paymentSdkConfigType = {
   campaignId: string;
-  formId: string;
+  formId?: string;
   deviceId?: string;
   xcoobeeDeviceId?: string;
   source?: string;

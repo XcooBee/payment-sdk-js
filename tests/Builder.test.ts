@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 import { expect } from "chai";
 import "mocha";
 
@@ -131,6 +133,7 @@ describe("Builder test", () => {
 
     try {
       builder.addLogic({ a: -1 });
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Unknown action");
     }
@@ -178,21 +181,25 @@ describe("Builder test", () => {
 
     try {
       builder.addCheckboxes([null]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be string[]");
     }
     try {
       builder.addCheckboxes(null);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be string[]");
     }
     try {
       builder.addCheckboxes([invalidReference]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
     }
     try {
       builder.addCheckboxes(new Array(30).fill("test"));
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max options allowed is ${optionsLimit}`);
     }
@@ -221,36 +228,43 @@ describe("Builder test", () => {
 
     try {
       builder.addCheckboxesWithCost([null]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addCheckboxesWithCost([[null, null]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addCheckboxesWithCost([["null", null]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addCheckboxesWithCost([[null, 1]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addCheckboxesWithCost(null);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addCheckboxesWithCost([[invalidReference, 1]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
     }
     try {
       builder.addCheckboxesWithCost(new Array(30).fill(["test", 1]));
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max options allowed is ${optionsLimit}`);
     }
@@ -270,21 +284,25 @@ describe("Builder test", () => {
 
     try {
       builder.addRadio([null]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be string[]");
     }
     try {
       builder.addRadio(null);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be string[]");
     }
     try {
       builder.addRadio([invalidReference]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
     }
     try {
       builder.addRadio(new Array(30).fill("test"));
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max options allowed is ${optionsLimit}`);
     }
@@ -313,36 +331,43 @@ describe("Builder test", () => {
 
     try {
       builder.addRadioWithCost([null]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addRadioWithCost([[null, null]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addRadioWithCost([["null", null]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addRadioWithCost([[null, 1]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addRadioWithCost(null);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Options expected to be [string, number][]");
     }
     try {
       builder.addRadioWithCost([[invalidReference, 1]]);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
     }
     try {
       builder.addRadioWithCost(new Array(30).fill(["test", 1]));
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max options allowed is ${optionsLimit}`);
     }
@@ -362,11 +387,13 @@ describe("Builder test", () => {
 
     try {
       builder.makeExternal(null);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Price code is required");
     }
     try {
       builder.makeExternal(invalidReference);
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Price code max length is ${maxRefSize} chars`);
     }
@@ -386,7 +413,26 @@ describe("Builder test", () => {
   });
 
   it("should not add percentage or min", () => {
-    // TODO
+    const builder = new Builder(testItem);
+
+    try {
+      builder.addPercentageOrMin({ reference: null });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal("Reference is required");
+    }
+    try {
+      builder.addPercentageOrMin({ reference: invalidReference });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
+    }
+    try {
+      builder.addPercentageOrMin({ reference: "Test" });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal("Percentage or min fixed amount required");
+    }
   });
 
   it("should add percentage or max", () => {
@@ -402,6 +448,29 @@ describe("Builder test", () => {
     });
   });
 
+  it("should not add percentage or max", () => {
+    const builder = new Builder(testItem);
+
+    try {
+      builder.addPercentageOrMax({ reference: null });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal("Reference is required");
+    }
+    try {
+      builder.addPercentageOrMax({ reference: invalidReference });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
+    }
+    try {
+      builder.addPercentageOrMax({ reference: "Test" });
+      expect(false).to.be.true;
+    } catch (e) {
+      expect(e.message).to.equal("Percentage or max fixed amount required");
+    }
+  });
+
   it("should require amount", () => {
     const builder = new Builder({ reference: "Test" }).addPercentageOrMax({
       reference: "Fee",
@@ -411,28 +480,40 @@ describe("Builder test", () => {
 
     try {
       builder.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Amount required");
     }
   });
 
-  it("should validate amount", () => {
+  it("should validate zero amount", () => {
     const zeroAmount = new Builder({ amount: 0, reference: "Test" });
-    const negativeAmount = new Builder({ amount: -1, reference: "Test" });
-    const infinityAmount = new Builder({ amount: Infinity, reference: "Test" });
 
     try {
       zeroAmount.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
     }
+  });
+
+  it("should validate negative amount", () => {
+    const negativeAmount = new Builder({ amount: -1, reference: "Test" });
+
     try {
       negativeAmount.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
     }
+  });
+
+  it("should validate large amount", () => {
+    const infinityAmount = new Builder({ amount: Infinity, reference: "Test" });
+
     try {
       infinityAmount.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
     }
@@ -447,6 +528,7 @@ describe("Builder test", () => {
 
     try {
       builder.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("Reference required");
     }
@@ -460,6 +542,7 @@ describe("Builder test", () => {
 
     try {
       builder.toJSON();
+      expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Reference max length is ${maxRefSize} chars`);
     }

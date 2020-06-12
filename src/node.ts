@@ -4,12 +4,12 @@ import { XcooBeePaymentSDK } from "./XcooBeePaymentSDK";
 
 import { logoSrc } from "./config";
 
-const base64 = {
+export const base64 = {
   atob: (str: string): string => Buffer.from(str, "base64").toString(),
   btoa: (str: string): string => Buffer.from(str).toString("base64"),
 };
 
-const qrGenerator = {
+export const qrGenerator = {
   generate: (url: string, size: number): Promise<string> => {
     let QrCode;
     try {

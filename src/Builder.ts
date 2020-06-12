@@ -7,7 +7,14 @@ import {
   simpleListType,
 } from "../index";
 
-import { conflictingActions, flexPaymentActions, maxAmount, maxRefSize, minAmount, optionsLimit } from "./config";
+import {
+  conflictingActions,
+  flexPaymentActions,
+  maxAmount,
+  maxRefSize,
+  minAmount,
+  optionsLimit,
+} from "./config";
 
 export class Builder {
   private amount?: number;
@@ -166,7 +173,10 @@ export class Builder {
         return "Amount required";
       }
     }
-    if (this.amount && (this.amount < minAmount || this.amount > maxAmount)) {
+    if (
+      !/(undefined|null|^$)/.test(String(this.amount)) &&
+      (this.amount < minAmount || this.amount > maxAmount)
+    ) {
       return `Amount must be in range ${minAmount} - ${maxAmount}`;
     }
     if (!this.reference) {

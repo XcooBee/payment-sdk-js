@@ -22,7 +22,7 @@ import { Combinator } from "./Combinator";
 
 export class XcooBeePaymentSDK {
   private readonly campaignId: string;
-  private readonly formId: string;
+  private readonly formId?: string;
   private readonly deviceId?: string;
   private readonly xcoobeeDeviceId?: string;
   private readonly source?: string;
@@ -34,11 +34,11 @@ export class XcooBeePaymentSDK {
     base64: Base64Interface,
     qrGenerator?: QrGeneratorInterface
   ) {
+    if (!config) {
+      throw new Error("config is required");
+    }
     if (!config.campaignId) {
       throw new Error("campaignId is required");
-    }
-    if (!config.formId) {
-      throw new Error("formId is required");
     }
     if (!base64) {
       throw new Error("base64 is required");
@@ -75,8 +75,10 @@ export class XcooBeePaymentSDK {
     return this.qrGenerator;
   }
 
-  getUrl(flexItems: Builder[]): string {
-    const dataPackage = this.base64.btoa(Combinator.combineToJSON(flexItems));
+  getUrl(flexItems: Builder[] = []): string {
+    const dataPackage = flexItems.length
+      ? this.base64.btoa(Combinator.combineToJSON(flexItems))
+      : "";
 
     if (dataPackage.length > maxDataPackageSize) {
       throw new Error("Data package is too large");
@@ -96,9 +98,9 @@ export class XcooBeePaymentSDK {
       .filter((key) => params[key])
       .map((key) => `${key}=${params[key]}`)
       .join("&");
-    const url = `${appUrl}/securePay/${this.campaignId}/${this.formId}${
-      queryString ? `?${queryString}` : ""
-    }`;
+    const url = `${appUrl}/securePay/${this.campaignId}${
+      this.formId ? `/${this.formId}` : ""
+    }${queryString ? `?${queryString}` : ""}`;
 
     if (url.length > urlMaxLength) {
       throw new Error(`Invalid url, length is more than ${urlMaxLength} chars`);
