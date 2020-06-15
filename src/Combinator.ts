@@ -1,6 +1,6 @@
 import { Builder } from "./Builder";
 
-import { flexPaymentActions } from "./config";
+import { FlexPaymentActions } from "./types";
 
 /**
  * class Combinator
@@ -19,10 +19,10 @@ export class Combinator {
 
     items.forEach((item) => {
       map[item.getKey()] = item;
-      if (item.hasAction(flexPaymentActions.setTip)) {
+      if (item.hasAction(FlexPaymentActions.setTip)) {
         tip = item;
       }
-      if (item.hasAction(flexPaymentActions.setTotal)) {
+      if (item.hasAction(FlexPaymentActions.setTotal)) {
         total = item;
       }
     });

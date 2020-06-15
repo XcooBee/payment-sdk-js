@@ -1,6 +1,17 @@
-import { flexPaymentActions } from "./config";
+export enum FlexPaymentActions {
+  addMinOrFixed = 1,
+  addMaxOrFixed = 2,
+  addSubRadio = 3,
+  addSubRadioWithExtraCost = 4,
+  addSubCheckbox = 5,
+  addSubCheckboxWithExtraCost = 6,
+  setTip = 7,
+  externalPricing = 8,
+  userEntry = 9,
+  setTotal = 10,
+}
 
-export type paymentSdkConfigType = {
+export type PaymentSdkConfigType = {
   campaignId: string;
   formId?: string;
   deviceId?: string;
@@ -8,54 +19,52 @@ export type paymentSdkConfigType = {
   source?: string;
 };
 
-export type logicReferenceOptionType = string | [string, number];
+export type LogicReferenceOptionType = string | [string, number];
 
-export type logicReferenceType = string | logicReferenceOptionType[];
+export type LogicReferenceType = string | SimpleListType | ListWithCostType;
 
-export type flexLogicType = {
-  a: flexPaymentActions;
+export type FlexLogicType = {
+  a: FlexPaymentActions;
   m?: number;
   M?: number;
   o?: number;
-  r?: logicReferenceType;
+  r?: LogicReferenceType;
 };
 
-export type flexItemType = {
+export type FlexItemType = {
   "0-3"?: number;
   "0-5"?: number;
   "0-6"?: string;
-  l?: flexLogicType | flexLogicType[];
+  l?: FlexLogicType | FlexLogicType[];
 };
 
-export type flexItemHumanizedType = {
-  amount?: number;
-  tax?: number;
-  reference?: string;
-  logic?: flexLogicType | flexLogicType[];
+export type FlexItemHumanizedType = DefaultPayUrlConfigType & {
+  logic?: FlexLogicType | FlexLogicType[];
 };
 
-export type simpleListType = string[];
-export type listWithCostType = [string, number][];
+export type SimpleListType = string[];
+export type ListWithCostType = [string, number][];
 
 export interface Base64Interface {
   atob(base64: string): string;
+
   btoa(content: string): string;
 }
 
 export interface QrGeneratorInterface {
-  generate(url: string, size: number): string | Promise<string>;
+  generate(url: string, size: number): Promise<string>;
 }
 
-export type defaultPayUrlConfigType = {
+export type DefaultPayUrlConfigType = {
   amount?: number;
   tax?: number;
   reference?: string;
 };
 
-export type listPayUrlConfigType = defaultPayUrlConfigType & { options: simpleListType };
+export type ListPayUrlConfigType = DefaultPayUrlConfigType & { options: SimpleListType };
 
-export type listWithCostPayUrlConfigType = defaultPayUrlConfigType & {
-  options: listWithCostType;
+export type ListWithCostPayUrlConfigType = DefaultPayUrlConfigType & {
+  options: ListWithCostType;
 };
 
-export type qrType = string | Promise<string>;
+export type QrType = string | Promise<string>;

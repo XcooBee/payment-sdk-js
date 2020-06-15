@@ -3,7 +3,7 @@ import "mocha";
 
 import { Builder } from "../src/Builder";
 import { Combinator } from "../src/Combinator";
-import { flexPaymentActions } from "../src/config";
+import { FlexPaymentActions } from "../src/types";
 
 describe("Combinator test", () => {
   it("should combine builders", () => {
@@ -19,19 +19,19 @@ describe("Combinator test", () => {
     expect(
       Combinator.combine([total, tip, userEntry]).map((item) => item.toJSON())
     ).to.be.deep.equal([
-      { l: { a: flexPaymentActions.setTip } },
-      { "0-3": 12, l: { a: flexPaymentActions.setTotal } },
+      { l: { a: FlexPaymentActions.setTip } },
+      { "0-3": 12, l: { a: FlexPaymentActions.setTotal } },
     ]);
 
     expect(
       Combinator.combine([tip, userEntry, checkBoxes]).map((item) => item.toJSON())
     ).to.be.deep.equal([
-      { l: { a: flexPaymentActions.setTip } },
-      { "0-6": "User entry", l: { a: flexPaymentActions.userEntry } },
+      { l: { a: FlexPaymentActions.setTip } },
+      { "0-6": "User entry", l: { a: FlexPaymentActions.userEntry } },
       {
         "0-3": 1,
         "0-6": "List",
-        l: { a: flexPaymentActions.addSubCheckbox, r: ["1", "2", "3"] },
+        l: { a: FlexPaymentActions.addSubCheckbox, r: ["1", "2", "3"] },
       },
     ]);
   });
@@ -42,8 +42,8 @@ describe("Combinator test", () => {
 
     expect(Combinator.combineToJSON([total, tip])).to.equal(
       JSON.stringify([
-        { l: { a: flexPaymentActions.setTip } },
-        { "0-3": 12, l: { a: flexPaymentActions.setTotal } },
+        { l: { a: FlexPaymentActions.setTip } },
+        { "0-3": 12, l: { a: FlexPaymentActions.setTotal } },
       ])
     );
   });

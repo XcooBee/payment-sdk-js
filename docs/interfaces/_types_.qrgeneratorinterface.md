@@ -16,9 +16,9 @@
 
 ###  generate
 
-▸ **generate**(`url`: string, `size`: number): *string | Promise‹string›*
+▸ **generate**(`url`: string, `size`: number): *Promise‹string›*
 
-*Defined in [types.ts:46](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/types.ts#L46)*
+*Defined in [types.ts:55](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L55)*
 
 **Parameters:**
 
@@ -27,4 +27,4 @@ Name | Type |
 `url` | string |
 `size` | number |
 
-**Returns:** *string | Promise‹string›*
+**Returns:** *Promise‹string›*

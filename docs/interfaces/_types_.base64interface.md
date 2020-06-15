@@ -19,7 +19,7 @@
 
 ▸ **atob**(`base64`: string): *string*
 
-*Defined in [types.ts:41](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/types.ts#L41)*
+*Defined in [types.ts:49](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L49)*
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ ___
 
 ▸ **btoa**(`content`: string): *string*
 
-*Defined in [types.ts:42](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/types.ts#L42)*
+*Defined in [types.ts:51](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L51)*
 
 **Parameters:**
 

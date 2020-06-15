@@ -1,14 +1,24 @@
-import { paymentSdkConfigType } from "./types";
+import { PaymentSdkConfigType } from "./types";
 
 import { XcooBeePaymentSDK } from "./XcooBeePaymentSDK";
 
 import { logoSrc } from "./config";
 
+/**
+ * Implements node version of Base64Interface to manipulate base64 strings
+ *
+ * @implements Base64Interface
+ */
 export const base64 = {
   atob: (str: string): string => Buffer.from(str, "base64").toString(),
   btoa: (str: string): string => Buffer.from(str).toString("base64"),
 };
 
+/**
+ * Implements node version of QrGeneratorInterface to generate QRs
+ *
+ * @implements QrGeneratorInterface
+ */
 export const qrGenerator = {
   generate: (url: string, size: number): Promise<string> => {
     let QrCode;
@@ -35,8 +45,15 @@ export const qrGenerator = {
   },
 };
 
+/**
+ * Wrapper for Node
+ * Provides implementations for Base64Interface and QrGeneratorInterface
+ *
+ * @class BrowserXcooBeePaymentSDK
+ * @extends XcooBeePaymentSDK
+ */
 export class NodeXcooBeePaymentSDK extends XcooBeePaymentSDK {
-  constructor(config: paymentSdkConfigType) {
+  constructor(config: PaymentSdkConfigType) {
     super(config, base64, qrGenerator);
   }
 }

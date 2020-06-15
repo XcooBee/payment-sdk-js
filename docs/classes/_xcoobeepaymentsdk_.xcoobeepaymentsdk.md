@@ -51,15 +51,15 @@ class XcooBeePaymentSDK
 
 ###  constructor
 
-\+ **new XcooBeePaymentSDK**(`config`: [paymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype), `base64`: [Base64Interface](../interfaces/_types_.base64interface.md), `qrGenerator?`: [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)): *[XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)*
+\+ **new XcooBeePaymentSDK**(`config`: [PaymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype), `base64`: [Base64Interface](../interfaces/_types_.base64interface.md), `qrGenerator?`: [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)): *[XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L33)*
+*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L33)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`config` | [paymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype) |
+`config` | [PaymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype) |
 `base64` | [Base64Interface](../interfaces/_types_.base64interface.md) |
 `qrGenerator?` | [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md) |
 
@@ -71,7 +71,7 @@ Name | Type |
 
 • **base64**: *[Base64Interface](../interfaces/_types_.base64interface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:32](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L32)*
+*Defined in [XcooBeePaymentSDK.ts:32](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L32)*
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **campaignId**: *string*
 
-*Defined in [XcooBeePaymentSDK.ts:27](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L27)*
+*Defined in [XcooBeePaymentSDK.ts:27](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L27)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **deviceId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:29](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L29)*
+*Defined in [XcooBeePaymentSDK.ts:29](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L29)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 • **formId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:28](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L28)*
+*Defined in [XcooBeePaymentSDK.ts:28](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L28)*
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 • **qrGenerator**? : *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L33)*
+*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L33)*
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 • **source**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:31](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L31)*
+*Defined in [XcooBeePaymentSDK.ts:31](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L31)*
 
 ___
 
@@ -119,15 +119,20 @@ ___
 
 • **xcoobeeDeviceId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:30](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L30)*
+*Defined in [XcooBeePaymentSDK.ts:30](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L30)*
 
 ## Methods
 
 ###  createExternalReferenceQr
 
-▸ **createExternalReferenceQr**(`priceCode`: string, `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+▸ **createExternalReferenceQr**(`priceCode`: string, `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:262](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L262)*
+*Defined in [XcooBeePaymentSDK.ts:381](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L381)*
+
+Create QR to add single item to basket
+Pricing description and image will be loaded from external source using priceCode
+
+**`throws`** {Error}
 
 **Parameters:**
 
@@ -136,7 +141,7 @@ Name | Type | Default |
 `priceCode` | string | - |
 `size` | number | defaultQrSize |
 
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
 
 ___
 
@@ -144,7 +149,12 @@ ___
 
 ▸ **createExternalReferenceUrl**(`priceCode`: string): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:256](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L256)*
+*Defined in [XcooBeePaymentSDK.ts:366](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L366)*
+
+Create url to add single item to basket
+Pricing description and image will be loaded from external source using priceCode
+
+**`throws`** {Error}
 
 **Parameters:**
 
@@ -158,111 +168,32 @@ ___
 
 ###  createMultiSelectQr
 
-▸ **createMultiSelectQr**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+▸ **createMultiSelectQr**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:229](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L229)*
+*Defined in [XcooBeePaymentSDK.ts:314](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L314)*
+
+Create QR to add single item to basket where user can select multiple additional options from a list of given options
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`config` | [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) | - |
+`config` | [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) | - |
 `size` | number | defaultQrSize |
 
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
 
 ___
 
 ###  createMultiSelectUrl
 
-▸ **createMultiSelectUrl**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
+▸ **createMultiSelectUrl**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:219](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L219)*
+*Defined in [XcooBeePaymentSDK.ts:296](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L296)*
 
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`config` | [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) |
-
-**Returns:** *string*
-
-___
-
-###  createMultiSelectWithCostQr
-
-▸ **createMultiSelectWithCostQr**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
-
-*Defined in [XcooBeePaymentSDK.ts:246](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L246)*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`config` | [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) | - |
-`size` | number | defaultQrSize |
-
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
-
-___
-
-###  createMultiSelectWithCostUrl
-
-▸ **createMultiSelectWithCostUrl**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
-
-*Defined in [XcooBeePaymentSDK.ts:236](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L236)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`config` | [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) |
-
-**Returns:** *string*
-
-___
-
-###  createPayQr
-
-▸ **createPayQr**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
-
-*Defined in [XcooBeePaymentSDK.ts:143](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L143)*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
-`size` | number | defaultQrSize |
-
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
-
-___
-
-###  createPayQrWithTip
-
-▸ **createPayQrWithTip**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
-
-*Defined in [XcooBeePaymentSDK.ts:158](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L158)*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
-`size` | number | defaultQrSize |
-
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
-
-___
-
-###  createPayUrl
-
-▸ **createPayUrl**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
-
-*Defined in [XcooBeePaymentSDK.ts:133](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L133)*
-
-Converts data package to url
+Create url to add single item to basket where user can select multiple additional options from a list of given options
 
 **`throws`** {Error}
 
@@ -270,7 +201,112 @@ Converts data package to url
 
 Name | Type |
 ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
+`config` | [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) |
+
+**Returns:** *string*
+
+___
+
+###  createMultiSelectWithCostQr
+
+▸ **createMultiSelectWithCostQr**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
+
+*Defined in [XcooBeePaymentSDK.ts:348](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L348)*
+
+Create QR to add single item to basket where user can select multiple additional options from a list of given options
+Each option can have extra price
+
+**`throws`** {Error}
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`config` | [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) | - |
+`size` | number | defaultQrSize |
+
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
+
+___
+
+###  createMultiSelectWithCostUrl
+
+▸ **createMultiSelectWithCostUrl**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
+
+*Defined in [XcooBeePaymentSDK.ts:329](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L329)*
+
+Create url to add single item to basket where user can select multiple additional options from a list of given options
+Each option can have extra price
+
+**`throws`** {Error}
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`config` | [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) |
+
+**Returns:** *string*
+
+___
+
+###  createPayQr
+
+▸ **createPayQr**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
+
+*Defined in [XcooBeePaymentSDK.ts:151](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L151)*
+
+Create simple payment request QR
+
+**`throws`** {Error}
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
+`size` | number | defaultQrSize |
+
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
+
+___
+
+###  createPayQrWithTip
+
+▸ **createPayQrWithTip**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
+
+*Defined in [XcooBeePaymentSDK.ts:181](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L181)*
+
+Create payment request QR with tip
+
+**`throws`** {Error}
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
+`size` | number | defaultQrSize |
+
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
+
+___
+
+###  createPayUrl
+
+▸ **createPayUrl**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
+
+*Defined in [XcooBeePaymentSDK.ts:133](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L133)*
+
+Create simple payment request URL
+
+**`throws`** {Error}
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
 
 **Returns:** *string*
 
@@ -278,15 +314,19 @@ ___
 
 ###  createPayUrlWithTip
 
-▸ **createPayUrlWithTip**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
+▸ **createPayUrlWithTip**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:147](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L147)*
+*Defined in [XcooBeePaymentSDK.ts:162](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L162)*
+
+Create payment request URL with tip
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
 
 **Returns:** *string*
 
@@ -294,32 +334,40 @@ ___
 
 ###  createSingleItemQr
 
-▸ **createSingleItemQr**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+▸ **createSingleItemQr**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:175](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L175)*
+*Defined in [XcooBeePaymentSDK.ts:213](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L213)*
+
+Create QR to add single item to basket where user can enter amount for this item
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) | - |
 `size` | number | defaultQrSize |
 
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
 
 ___
 
 ###  createSingleItemUrl
 
-▸ **createSingleItemUrl**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
+▸ **createSingleItemUrl**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:165](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L165)*
+*Defined in [XcooBeePaymentSDK.ts:195](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L195)*
+
+Create url to add single item to basket where user can enter amount for this item
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`config` | [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
+`config` | [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype) |
 
 **Returns:** *string*
 
@@ -327,32 +375,40 @@ ___
 
 ###  createSingleSelectQr
 
-▸ **createSingleSelectQr**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+▸ **createSingleSelectQr**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:192](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L192)*
+*Defined in [XcooBeePaymentSDK.ts:245](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L245)*
+
+Create QR to add single item to basket where user can select one additional option from a list of given options
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`config` | [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) | - |
+`config` | [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) | - |
 `size` | number | defaultQrSize |
 
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
 
 ___
 
 ###  createSingleSelectUrl
 
-▸ **createSingleSelectUrl**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
+▸ **createSingleSelectUrl**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:182](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L182)*
+*Defined in [XcooBeePaymentSDK.ts:227](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L227)*
+
+Create url to add single item to basket where user can select one additional option from a list of given options
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`config` | [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) |
+`config` | [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype) |
 
 **Returns:** *string*
 
@@ -360,32 +416,42 @@ ___
 
 ###  createSingleSelectWithCostQr
 
-▸ **createSingleSelectWithCostQr**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+▸ **createSingleSelectWithCostQr**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:209](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L209)*
+*Defined in [XcooBeePaymentSDK.ts:279](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L279)*
+
+Create QR to add single item to basket where user can select one additional option from a list of given options
+Each option can have extra price
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`config` | [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) | - |
+`config` | [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) | - |
 `size` | number | defaultQrSize |
 
-**Returns:** *[qrType](../modules/_types_.md#qrtype)*
+**Returns:** *[QrType](../modules/_types_.md#qrtype)*
 
 ___
 
 ###  createSingleSelectWithCostUrl
 
-▸ **createSingleSelectWithCostUrl**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
+▸ **createSingleSelectWithCostUrl**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:199](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L199)*
+*Defined in [XcooBeePaymentSDK.ts:260](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L260)*
+
+Create url to add single item to basket where user can select one additional option from a list of given options
+Each option can have extra price
+
+**`throws`** {Error}
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`config` | [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) |
+`config` | [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype) |
 
 **Returns:** *string*
 
@@ -395,7 +461,7 @@ ___
 
 ▸ **getQrGenerator**(): *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:79](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L79)*
+*Defined in [XcooBeePaymentSDK.ts:79](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L79)*
 
 Returns qr generator if provided
 
@@ -407,7 +473,7 @@ ___
 
 ▸ **getUrl**(`flexItems`: [Builder](_builder_.builder.md)[]): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:93](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L93)*
+*Defined in [XcooBeePaymentSDK.ts:93](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/XcooBeePaymentSDK.ts#L93)*
 
 Converts data package to url
 

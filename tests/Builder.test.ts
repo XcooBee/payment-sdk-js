@@ -5,13 +5,9 @@ import "mocha";
 
 import { Builder } from "../src/Builder";
 
-import {
-  flexPaymentActions,
-  maxAmount,
-  maxRefSize,
-  minAmount,
-  optionsLimit,
-} from "../src/config";
+import { maxAmount, maxRefSize, minAmount, optionsLimit } from "../src/config";
+
+import { FlexPaymentActions } from "../src/types";
 
 const testItem = {
   amount: 1,
@@ -27,7 +23,7 @@ const testRaw = {
 
 const invalidReference = "TestTestTestTestTestTestTestTestTestTestTest";
 
-const testLogic = { a: flexPaymentActions.setTotal };
+const testLogic = { a: FlexPaymentActions.setTotal };
 
 describe("Builder test", () => {
   it("should create instance of Builder", () => {
@@ -43,14 +39,14 @@ describe("Builder test", () => {
       "0-3": 1,
       "0-5": 1,
       "0-6": "Test",
-      l: { a: flexPaymentActions.setTotal },
+      l: { a: FlexPaymentActions.setTotal },
     });
     expect(builderWithMultiLogic).to.be.instanceOf(Builder);
     expect(builderWithMultiLogic.toJSON()).to.deep.equal({
       "0-3": 1,
       "0-5": 1,
       "0-6": "Test",
-      l: { a: flexPaymentActions.setTotal },
+      l: { a: FlexPaymentActions.setTotal },
     });
     expect(builder).to.be.instanceOf(Builder);
     expect(builder.toJSON()).to.deep.equal({
@@ -106,24 +102,24 @@ describe("Builder test", () => {
   it("should check if action is presented", () => {
     const builder = new Builder({ ...testItem, logic: testLogic });
 
-    expect(builder.hasAction(flexPaymentActions.setTotal)).to.be.true;
+    expect(builder.hasAction(FlexPaymentActions.setTotal)).to.be.true;
   });
 
   it("should add logic", () => {
     const builder = new Builder(testItem)
       .makeTip()
-      .addLogic({ a: flexPaymentActions.setTotal })
-      .addLogic({ a: flexPaymentActions.setTotal })
-      .addLogic({ a: flexPaymentActions.addMaxOrFixed, r: "Extra Fee", M: 10 })
-      .addLogic({ a: flexPaymentActions.addMaxOrFixed, r: "Another Fee", M: 10 })
-      .addLogic({ a: flexPaymentActions.addMaxOrFixed, r: "Extra Fee", M: 3 });
+      .addLogic({ a: FlexPaymentActions.setTotal })
+      .addLogic({ a: FlexPaymentActions.setTotal })
+      .addLogic({ a: FlexPaymentActions.addMaxOrFixed, r: "Extra Fee", M: 10 })
+      .addLogic({ a: FlexPaymentActions.addMaxOrFixed, r: "Another Fee", M: 10 })
+      .addLogic({ a: FlexPaymentActions.addMaxOrFixed, r: "Extra Fee", M: 3 });
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
       l: [
-        { a: flexPaymentActions.setTotal },
-        { a: flexPaymentActions.addMaxOrFixed, M: 10, r: "Another Fee" },
-        { a: flexPaymentActions.addMaxOrFixed, M: 3, r: "Extra Fee" },
+        { a: FlexPaymentActions.setTotal },
+        { a: FlexPaymentActions.addMaxOrFixed, M: 10, r: "Another Fee" },
+        { a: FlexPaymentActions.addMaxOrFixed, M: 3, r: "Extra Fee" },
       ],
     });
   });
@@ -148,13 +144,13 @@ describe("Builder test", () => {
   it("should make total", () => {
     const builder = new Builder().makeTotal();
 
-    expect(builder.toJSON()).to.deep.equal({ l: { a: flexPaymentActions.setTotal } });
+    expect(builder.toJSON()).to.deep.equal({ l: { a: FlexPaymentActions.setTotal } });
   });
 
   it("should make tip", () => {
     const builder = new Builder(testItem).makeTip();
 
-    expect(builder.toJSON()).to.deep.equal({ l: { a: flexPaymentActions.setTip } });
+    expect(builder.toJSON()).to.deep.equal({ l: { a: FlexPaymentActions.setTip } });
   });
 
   it("should make user entry", () => {
@@ -163,7 +159,7 @@ describe("Builder test", () => {
     expect(builder.toJSON()).to.deep.equal({
       "0-5": testItem.tax,
       "0-6": testItem.reference,
-      l: { a: flexPaymentActions.userEntry },
+      l: { a: FlexPaymentActions.userEntry },
     });
   });
 
@@ -172,7 +168,7 @@ describe("Builder test", () => {
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
-      l: { a: flexPaymentActions.addSubCheckbox, r: ["item1", "item2"] },
+      l: { a: FlexPaymentActions.addSubCheckbox, r: ["item1", "item2"] },
     });
   });
 
@@ -214,7 +210,7 @@ describe("Builder test", () => {
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
       l: {
-        a: flexPaymentActions.addSubCheckboxWithExtraCost,
+        a: FlexPaymentActions.addSubCheckboxWithExtraCost,
         r: [
           ["item1", 1],
           ["item2", 2],
@@ -275,7 +271,7 @@ describe("Builder test", () => {
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
-      l: { a: flexPaymentActions.addSubRadio, r: ["item1", "item2"] },
+      l: { a: FlexPaymentActions.addSubRadio, r: ["item1", "item2"] },
     });
   });
 
@@ -317,7 +313,7 @@ describe("Builder test", () => {
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
       l: {
-        a: flexPaymentActions.addSubRadioWithExtraCost,
+        a: FlexPaymentActions.addSubRadioWithExtraCost,
         r: [
           ["item1", 1],
           ["item2", 2],
@@ -378,7 +374,7 @@ describe("Builder test", () => {
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
-      l: { a: flexPaymentActions.externalPricing, r: "shoe" },
+      l: { a: FlexPaymentActions.externalPricing, r: "shoe" },
     });
   });
 
@@ -408,7 +404,7 @@ describe("Builder test", () => {
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
-      l: { a: flexPaymentActions.addMinOrFixed, r: "Fee", o: 0.1, m: 5 },
+      l: { a: FlexPaymentActions.addMinOrFixed, r: "Fee", o: 0.1, m: 5 },
     });
   });
 
@@ -444,7 +440,7 @@ describe("Builder test", () => {
 
     expect(builder.toJSON()).to.deep.equal({
       ...testRaw,
-      l: { a: flexPaymentActions.addMaxOrFixed, r: "Fee", o: 0.1, M: 5 },
+      l: { a: FlexPaymentActions.addMaxOrFixed, r: "Fee", o: 0.1, M: 5 },
     });
   });
 

@@ -1,15 +1,15 @@
 import {
-  flexItemHumanizedType,
-  flexItemType,
-  flexLogicType,
-  listWithCostType,
-  logicReferenceOptionType,
-  simpleListType,
+  FlexItemHumanizedType,
+  FlexItemType,
+  FlexLogicType,
+  FlexPaymentActions,
+  ListWithCostType,
+  LogicReferenceOptionType,
+  SimpleListType,
 } from "./types";
 
 import {
   conflictingActions,
-  flexPaymentActions,
   maxAmount,
   maxRefSize,
   minAmount,
@@ -23,19 +23,19 @@ export class Builder {
   private amount?: number;
   private tax?: number;
   private reference?: string;
-  private logic: flexLogicType[] = [];
+  private logic: FlexLogicType[] = [];
 
   /**
    * Validates single logic item
    *
-   * @param {flexLogicType} logic
+   * @param {FlexLogicType} logic
    * @returns {string | null}
    */
-  static validateLogic(logic: flexLogicType): string | null {
-    const { a, r, o, m, M } = logic;
+  static validateLogic(logic: FlexLogicType): string | null {
+    switch (logic.a) {
+      case FlexPaymentActions.addMinOrFixed: {
+        const { r, o, m } = logic;
 
-    switch (a) {
-      case flexPaymentActions.addMinOrFixed: {
         if (!r) {
           return "Reference is required";
         }
@@ -47,7 +47,9 @@ export class Builder {
         }
         return null;
       }
-      case flexPaymentActions.addMaxOrFixed: {
+      case FlexPaymentActions.addMaxOrFixed: {
+        const { r, o, M } = logic;
+
         if (!r) {
           return "Reference is required";
         }
@@ -59,28 +61,32 @@ export class Builder {
         }
         return null;
       }
-      case flexPaymentActions.addSubCheckbox:
-      case flexPaymentActions.addSubRadio: {
+      case FlexPaymentActions.addSubCheckbox:
+      case FlexPaymentActions.addSubRadio: {
+        const { r } = logic;
+
         if (
           !Array.isArray(r) ||
-          r.some((ref: logicReferenceOptionType) => typeof ref !== "string")
+          r.some((ref: LogicReferenceOptionType) => typeof ref !== "string")
         ) {
           return "Options expected to be string[]";
         }
         if (r.length > optionsLimit) {
           return `Max options allowed is ${optionsLimit}`;
         }
-        if (r.some((ref: logicReferenceOptionType) => ref.length > maxRefSize)) {
+        if (r.some((ref: LogicReferenceOptionType) => ref.length > maxRefSize)) {
           return `Reference max length is ${maxRefSize} chars`;
         }
         return null;
       }
-      case flexPaymentActions.addSubRadioWithExtraCost:
-      case flexPaymentActions.addSubCheckboxWithExtraCost: {
+      case FlexPaymentActions.addSubRadioWithExtraCost:
+      case FlexPaymentActions.addSubCheckboxWithExtraCost: {
+        const { r } = logic;
+
         if (
           !Array.isArray(r) ||
           r.some(
-            (option: logicReferenceOptionType) =>
+            (option: LogicReferenceOptionType) =>
               !Array.isArray(option) ||
               typeof option[0] !== "string" ||
               typeof option[1] !== "number"
@@ -91,12 +97,14 @@ export class Builder {
         if (r.length > optionsLimit) {
           return `Max options allowed is ${optionsLimit}`;
         }
-        if (r.some((option: logicReferenceOptionType) => option[0].length > maxRefSize)) {
+        if (r.some((option: LogicReferenceOptionType) => option[0].length > maxRefSize)) {
           return `Reference max length is ${maxRefSize} chars`;
         }
         return null;
       }
-      case flexPaymentActions.externalPricing: {
+      case FlexPaymentActions.externalPricing: {
+        const { r } = logic;
+
         if (!r) {
           return "Price code is required";
         }
@@ -105,16 +113,16 @@ export class Builder {
         }
         return null;
       }
-      case flexPaymentActions.userEntry:
-      case flexPaymentActions.setTotal:
-      case flexPaymentActions.setTip:
+      case FlexPaymentActions.userEntry:
+      case FlexPaymentActions.setTotal:
+      case FlexPaymentActions.setTip:
         return null;
       default:
         return "Unknown action";
     }
   }
 
-  constructor(config?: flexItemHumanizedType) {
+  constructor(config?: FlexItemHumanizedType) {
     if (!config) {
       return;
     }
@@ -166,10 +174,10 @@ export class Builder {
   /**
    * Populates data from raw data package
    *
-   * @param {flexItemType} config
+   * @param {FlexItemType} config
    * @returns {Builder}
    */
-  fromRaw(config: flexItemType): Builder {
+  fromRaw(config: FlexItemType): Builder {
     this.amount = config["0-3"];
     this.tax = config["0-5"];
     this.reference = config["0-6"];
@@ -185,10 +193,10 @@ export class Builder {
   /**
    * Checks whether current item has given action
    *
-   * @param {flexPaymentActions} action
+   * @param {FlexPaymentActions} action
    * @returns {boolean}
    */
-  hasAction(action: flexPaymentActions) {
+  hasAction(action: FlexPaymentActions): boolean {
     return this.logic.some((item) => item.a === action);
   }
 
@@ -198,17 +206,17 @@ export class Builder {
    * @returns {string | null} - returns error text or null
    */
   validate(): string | null {
-    if (this.hasAction(flexPaymentActions.setTip)) {
+    if (this.hasAction(FlexPaymentActions.setTip)) {
       return null;
     }
     if (!this.amount) {
       if (
         this.logic.length &&
         !(
-          this.hasAction(flexPaymentActions.externalPricing) ||
-          this.hasAction(flexPaymentActions.userEntry) ||
-          this.hasAction(flexPaymentActions.setTip) ||
-          this.hasAction(flexPaymentActions.setTotal)
+          this.hasAction(FlexPaymentActions.externalPricing) ||
+          this.hasAction(FlexPaymentActions.userEntry) ||
+          this.hasAction(FlexPaymentActions.setTip) ||
+          this.hasAction(FlexPaymentActions.setTotal)
         )
       ) {
         return "Amount required";
@@ -224,9 +232,9 @@ export class Builder {
       if (
         this.logic.length &&
         !(
-          this.hasAction(flexPaymentActions.externalPricing) ||
-          this.hasAction(flexPaymentActions.setTip) ||
-          this.hasAction(flexPaymentActions.setTotal)
+          this.hasAction(FlexPaymentActions.externalPricing) ||
+          this.hasAction(FlexPaymentActions.setTip) ||
+          this.hasAction(FlexPaymentActions.setTotal)
         )
       ) {
         return "Reference required";
@@ -241,24 +249,24 @@ export class Builder {
    * Adds logic to current item
    *
    * @throws {Error}
-   * @param {flexLogicType} item
+   * @param {FlexLogicType} item
    * @returns {Builder}
    */
-  addLogic(item: flexLogicType): Builder {
+  addLogic(item: FlexLogicType): Builder {
     const err = Builder.validateLogic(item);
 
     if (err) {
       throw new Error(err);
     }
 
-    if (item.a === flexPaymentActions.setTip) {
-      this.logic = [{ a: flexPaymentActions.setTip }];
+    if (item.a === FlexPaymentActions.setTip) {
+      this.logic = [{ a: FlexPaymentActions.setTip }];
       return this;
     }
 
-    if (this.hasAction(flexPaymentActions.setTip)) {
+    if (this.hasAction(FlexPaymentActions.setTip)) {
       this.logic = this.logic.filter(
-        (logicItem: flexLogicType) => logicItem.a !== flexPaymentActions.setTip
+        (logicItem: FlexLogicType) => logicItem.a !== FlexPaymentActions.setTip
       );
     }
 
@@ -294,7 +302,7 @@ export class Builder {
    * @returns {Builder}
    */
   makeTip(): Builder {
-    return this.addLogic({ a: flexPaymentActions.setTip });
+    return this.addLogic({ a: FlexPaymentActions.setTip });
   }
 
   /**
@@ -305,7 +313,7 @@ export class Builder {
    * @returns {Builder}
    */
   makeTotal(): Builder {
-    return this.addLogic({ a: flexPaymentActions.setTotal });
+    return this.addLogic({ a: FlexPaymentActions.setTotal });
   }
 
   /**
@@ -314,7 +322,7 @@ export class Builder {
    * @returns {Builder}
    */
   makeUserEntry(): Builder {
-    return this.addLogic({ a: flexPaymentActions.userEntry });
+    return this.addLogic({ a: FlexPaymentActions.userEntry });
   }
 
   /**
@@ -324,7 +332,7 @@ export class Builder {
    * @returns {Builder}
    */
   makeExternal(priceCode: string): Builder {
-    return this.addLogic({ a: flexPaymentActions.externalPricing, r: priceCode });
+    return this.addLogic({ a: FlexPaymentActions.externalPricing, r: priceCode });
   }
 
   /**
@@ -346,7 +354,7 @@ export class Builder {
     min?: number;
   }): Builder {
     return this.addLogic({
-      a: flexPaymentActions.addMinOrFixed,
+      a: FlexPaymentActions.addMinOrFixed,
       r: config.reference,
       o: config.percentage,
       m: config.min,
@@ -372,7 +380,7 @@ export class Builder {
     max?: number;
   }): Builder {
     return this.addLogic({
-      a: flexPaymentActions.addMaxOrFixed,
+      a: FlexPaymentActions.addMaxOrFixed,
       r: config.reference,
       o: config.percentage,
       M: config.max,
@@ -382,46 +390,46 @@ export class Builder {
   /**
    * Adds list with additions options inside current item to choose one of them
    *
-   * @param {simpleListType} options
+   * @param {SimpleListType} options
    * @param options
    * @returns {Builder}
    */
-  addRadio(options: simpleListType): Builder {
-    return this.addLogic({ a: flexPaymentActions.addSubRadio, r: options });
+  addRadio(options: SimpleListType): Builder {
+    return this.addLogic({ a: FlexPaymentActions.addSubRadio, r: options });
   }
 
   /**
    * Adds list with additions options, with extra cost for each, inside current item to choose one of them
    *
-   * @param {listWithCostType} options
+   * @param {ListWithCostType} options
    * @param options
    * @returns {Builder}
    */
-  addRadioWithCost(options: listWithCostType): Builder {
-    return this.addLogic({ a: flexPaymentActions.addSubRadioWithExtraCost, r: options });
+  addRadioWithCost(options: ListWithCostType): Builder {
+    return this.addLogic({ a: FlexPaymentActions.addSubRadioWithExtraCost, r: options });
   }
 
   /**
    * Adds list with additions options inside current item to choose any of them
    *
-   * @param {simpleListType} options
+   * @param {SimpleListType} options
    * @param options
    * @returns {Builder}
    */
-  addCheckboxes(options: simpleListType): Builder {
-    return this.addLogic({ a: flexPaymentActions.addSubCheckbox, r: options });
+  addCheckboxes(options: SimpleListType): Builder {
+    return this.addLogic({ a: FlexPaymentActions.addSubCheckbox, r: options });
   }
 
   /**
    * Adds list with additions options, with extra cost for each, inside current item to choose any of them
    *
-   * @param {listWithCostType} options
+   * @param {ListWithCostType} options
    * @param options
    * @returns {Builder}
    */
-  addCheckboxesWithCost(options: listWithCostType): Builder {
+  addCheckboxesWithCost(options: ListWithCostType): Builder {
     return this.addLogic({
-      a: flexPaymentActions.addSubCheckboxWithExtraCost,
+      a: FlexPaymentActions.addSubCheckboxWithExtraCost,
       r: options,
     });
   }
@@ -430,28 +438,28 @@ export class Builder {
    * Validates and transforms builder instance into object
    *
    * @throws {Error}
-   * @returns {flexItemType}
+   * @returns {FlexItemType}
    */
-  toJSON(): flexItemType {
+  toJSON(): FlexItemType {
     const err = this.validate();
 
     if (err) {
       throw new Error(err);
     }
 
-    const data = {} as flexItemType;
+    const data = {} as FlexItemType;
 
     if (
       this.amount &&
-      !this.hasAction(flexPaymentActions.setTip) &&
-      !this.hasAction(flexPaymentActions.userEntry)
+      !this.hasAction(FlexPaymentActions.setTip) &&
+      !this.hasAction(FlexPaymentActions.userEntry)
     ) {
       data["0-3"] = this.amount;
     }
-    if (this.tax && !this.hasAction(flexPaymentActions.setTip)) {
+    if (this.tax && !this.hasAction(FlexPaymentActions.setTip)) {
       data["0-5"] = this.tax;
     }
-    if (this.reference && !this.hasAction(flexPaymentActions.setTip)) {
+    if (this.reference && !this.hasAction(FlexPaymentActions.setTip)) {
       data["0-6"] = this.reference;
     }
     if (this.logic.length) {

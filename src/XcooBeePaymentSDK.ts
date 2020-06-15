@@ -1,11 +1,11 @@
 import {
   Base64Interface,
-  defaultPayUrlConfigType,
-  listPayUrlConfigType,
-  listWithCostPayUrlConfigType,
-  paymentSdkConfigType,
+  DefaultPayUrlConfigType,
+  ListPayUrlConfigType,
+  ListWithCostPayUrlConfigType,
+  PaymentSdkConfigType,
   QrGeneratorInterface,
-  qrType,
+  QrType,
 } from "./types";
 
 import {
@@ -33,7 +33,7 @@ export class XcooBeePaymentSDK {
   private qrGenerator?: QrGeneratorInterface;
 
   constructor(
-    config: paymentSdkConfigType,
+    config: PaymentSdkConfigType,
     base64: Base64Interface,
     qrGenerator?: QrGeneratorInterface
   ) {
@@ -124,13 +124,13 @@ export class XcooBeePaymentSDK {
   }
 
   /**
-   * Converts data package to url
+   * Create simple payment request URL
    *
    * @throws {Error}
-   * @param {defaultPayUrlConfigType} config
+   * @param {DefaultPayUrlConfigType} config
    * @returns {string}
    */
-  createPayUrl(config: defaultPayUrlConfigType): string {
+  createPayUrl(config: DefaultPayUrlConfigType): string {
     const total = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -140,11 +140,26 @@ export class XcooBeePaymentSDK {
     return this.getUrl([total]);
   }
 
-  createPayQr(config: defaultPayUrlConfigType, size: number = defaultQrSize): qrType {
+  /**
+   * Create simple payment request QR
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
+  createPayQr(config: DefaultPayUrlConfigType, size: number = defaultQrSize): QrType {
     return this.getQrGenerator().generate(this.createPayUrl(config), size);
   }
 
-  createPayUrlWithTip(config: defaultPayUrlConfigType): string {
+  /**
+   * Create payment request URL with tip
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createPayUrlWithTip(config: DefaultPayUrlConfigType): string {
     const total = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -155,14 +170,29 @@ export class XcooBeePaymentSDK {
     return this.getUrl([total, tip]);
   }
 
+  /**
+   * Create payment request QR with tip
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createPayQrWithTip(
-    config: defaultPayUrlConfigType,
+    config: DefaultPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(this.createPayUrlWithTip(config), size);
   }
 
-  createSingleItemUrl(config: defaultPayUrlConfigType): string {
+  /**
+   * Create url to add single item to basket where user can enter amount for this item
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createSingleItemUrl(config: DefaultPayUrlConfigType): string {
     const userEntry = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -172,14 +202,29 @@ export class XcooBeePaymentSDK {
     return this.getUrl([userEntry]);
   }
 
+  /**
+   * Create QR to add single item to basket where user can enter amount for this item
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createSingleItemQr(
-    config: defaultPayUrlConfigType,
+    config: DefaultPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(this.createSingleItemUrl(config), size);
   }
 
-  createSingleSelectUrl(config: listPayUrlConfigType): string {
+  /**
+   * Create url to add single item to basket where user can select one additional option from a list of given options
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createSingleSelectUrl(config: ListPayUrlConfigType): string {
     const radio = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -189,14 +234,30 @@ export class XcooBeePaymentSDK {
     return this.getUrl([radio]);
   }
 
+  /**
+   * Create QR to add single item to basket where user can select one additional option from a list of given options
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createSingleSelectQr(
-    config: listPayUrlConfigType,
+    config: ListPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(this.createSingleSelectUrl(config), size);
   }
 
-  createSingleSelectWithCostUrl(config: listWithCostPayUrlConfigType): string {
+  /**
+   * Create url to add single item to basket where user can select one additional option from a list of given options
+   * Each option can have extra price
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createSingleSelectWithCostUrl(config: ListWithCostPayUrlConfigType): string {
     const radio = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -206,17 +267,33 @@ export class XcooBeePaymentSDK {
     return this.getUrl([radio]);
   }
 
+  /**
+   * Create QR to add single item to basket where user can select one additional option from a list of given options
+   * Each option can have extra price
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createSingleSelectWithCostQr(
-    config: listWithCostPayUrlConfigType,
+    config: ListWithCostPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(
       this.createSingleSelectWithCostUrl(config),
       size
     );
   }
 
-  createMultiSelectUrl(config: listPayUrlConfigType): string {
+  /**
+   * Create url to add single item to basket where user can select multiple additional options from a list of given options
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createMultiSelectUrl(config: ListPayUrlConfigType): string {
     const checkboxes = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -226,14 +303,30 @@ export class XcooBeePaymentSDK {
     return this.getUrl([checkboxes]);
   }
 
+  /**
+   * Create QR to add single item to basket where user can select multiple additional options from a list of given options
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createMultiSelectQr(
-    config: listPayUrlConfigType,
+    config: ListPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(this.createMultiSelectUrl(config), size);
   }
 
-  createMultiSelectWithCostUrl(config: listWithCostPayUrlConfigType): string {
+  /**
+   * Create url to add single item to basket where user can select multiple additional options from a list of given options
+   * Each option can have extra price
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @returns {string}
+   */
+  createMultiSelectWithCostUrl(config: ListWithCostPayUrlConfigType): string {
     const checkboxes = new Builder({
       amount: config.amount,
       tax: config.tax,
@@ -243,23 +336,49 @@ export class XcooBeePaymentSDK {
     return this.getUrl([checkboxes]);
   }
 
+  /**
+   * Create QR to add single item to basket where user can select multiple additional options from a list of given options
+   * Each option can have extra price
+   *
+   * @throws {Error}
+   * @param {DefaultPayUrlConfigType} config
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
   createMultiSelectWithCostQr(
-    config: listWithCostPayUrlConfigType,
+    config: ListWithCostPayUrlConfigType,
     size: number = defaultQrSize
-  ): qrType {
+  ): QrType {
     return this.getQrGenerator().generate(
       this.createMultiSelectWithCostUrl(config),
       size
     );
   }
 
+  /**
+   * Create url to add single item to basket
+   * Pricing description and image will be loaded from external source using priceCode
+   *
+   * @throws {Error}
+   * @param {string} priceCode
+   * @returns {string}
+   */
   createExternalReferenceUrl(priceCode: string): string {
     const externalPricing = new Builder().makeExternal(priceCode);
 
     return this.getUrl([externalPricing]);
   }
 
-  createExternalReferenceQr(priceCode: string, size: number = defaultQrSize): qrType {
+  /**
+   * Create QR to add single item to basket
+   * Pricing description and image will be loaded from external source using priceCode
+   *
+   * @throws {Error}
+   * @param {string} priceCode
+   * @param {number} [size = defaultQrSize]
+   * @returns {QrType}
+   */
+  createExternalReferenceQr(priceCode: string, size: number = defaultQrSize): QrType {
     return this.getQrGenerator().generate(
       this.createExternalReferenceUrl(priceCode),
       size
