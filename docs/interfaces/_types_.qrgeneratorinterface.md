@@ -18,7 +18,7 @@
 
 ▸ **generate**(`url`: string, `size`: number): *Promise‹string›*
 
-*Defined in [types.ts:55](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L55)*
+*Defined in [types.ts:55](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L55)*
 
 **Parameters:**
 

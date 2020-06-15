@@ -17,13 +17,13 @@ Touchless smart QRs can be used with users that are directly in vicinity of your
 ### Node
 
 ```
-npm i @xcoobee/payment-sdk-js easyqrcodejs-nodejs
+npm i @xcoobee/payment-sdk easyqrcodejs-nodejs
 ```
 
 ### Web
 
 ```
-npm i @xcoobee/payment-sdk-js easyqrcodejs
+npm i @xcoobee/payment-sdk easyqrcodejs
 ```
 
 to use without qr generator or to provide your own please use this [link](note.md)

@@ -19,7 +19,7 @@
 
 ### ▪ **base64**: *object*
 
-*Defined in [node.ts:12](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/node.ts#L12)*
+*Defined in [node.ts:12](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/node.ts#L12)*
 
 Implements node version of Base64Interface to manipulate base64 strings
 
@@ -29,7 +29,7 @@ Implements node version of Base64Interface to manipulate base64 strings
 
 ▸ **atob**(`str`: string): *string*
 
-*Defined in [node.ts:13](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/node.ts#L13)*
+*Defined in [node.ts:13](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/node.ts#L13)*
 
 **Parameters:**
 
@@ -43,7 +43,7 @@ Name | Type |
 
 ▸ **btoa**(`str`: string): *string*
 
-*Defined in [node.ts:14](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/node.ts#L14)*
+*Defined in [node.ts:14](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/node.ts#L14)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ ___
 
 ### ▪ **qrGenerator**: *object*
 
-*Defined in [node.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/node.ts#L22)*
+*Defined in [node.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/node.ts#L22)*
 
 Implements node version of QrGeneratorInterface to generate QRs
 
@@ -69,7 +69,7 @@ Implements node version of QrGeneratorInterface to generate QRs
 
 ▸ **generate**(`url`: string, `size`: number): *Promise‹string›*
 
-*Defined in [node.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/node.ts#L23)*
+*Defined in [node.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/node.ts#L23)*
 
 **Parameters:**
 

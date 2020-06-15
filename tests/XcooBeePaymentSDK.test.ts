@@ -14,7 +14,7 @@ const mockedBase64 = {
 };
 
 const mockedQrGenerator = {
-  generate: (str: string) => str,
+  generate: (str: string) => Promise.resolve(str),
 };
 
 const longString = new Array(201).fill("t").join("");

@@ -23,7 +23,7 @@
 
 • **addMaxOrFixed**: = 2
 
-*Defined in [types.ts:3](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L3)*
+*Defined in [types.ts:3](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L3)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **addMinOrFixed**: = 1
 
-*Defined in [types.ts:2](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L2)*
+*Defined in [types.ts:2](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L2)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **addSubCheckbox**: = 5
 
-*Defined in [types.ts:6](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L6)*
+*Defined in [types.ts:6](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L6)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **addSubCheckboxWithExtraCost**: = 6
 
-*Defined in [types.ts:7](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L7)*
+*Defined in [types.ts:7](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L7)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **addSubRadio**: = 3
 
-*Defined in [types.ts:4](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L4)*
+*Defined in [types.ts:4](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L4)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **addSubRadioWithExtraCost**: = 4
 
-*Defined in [types.ts:5](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L5)*
+*Defined in [types.ts:5](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L5)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **externalPricing**: = 8
 
-*Defined in [types.ts:9](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L9)*
+*Defined in [types.ts:9](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L9)*
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **setTip**: = 7
 
-*Defined in [types.ts:8](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L8)*
+*Defined in [types.ts:8](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L8)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **setTotal**: = 10
 
-*Defined in [types.ts:11](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L11)*
+*Defined in [types.ts:11](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L11)*
 
 ___
 
@@ -95,4 +95,4 @@ ___
 
 • **userEntry**: = 9
 
-*Defined in [types.ts:10](https://github.com/XcooBee/payment-sdk-js/blob/e695a7a/src/types.ts#L10)*
+*Defined in [types.ts:10](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L10)*
