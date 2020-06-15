@@ -2,7 +2,16 @@ import { Builder } from "./Builder";
 
 import { flexPaymentActions } from "./config";
 
+/**
+ * class Combinator
+ */
 export class Combinator {
+  /**
+   * Combines multiple items into one package
+   *
+   * @param {Builder[]} items
+   * @returns {Builder[]}
+   */
   static combine(items: Builder[]): Builder[] {
     const map = {};
     let tip: Builder;
@@ -24,6 +33,12 @@ export class Combinator {
     return Object.keys(map).map((key) => map[key]);
   }
 
+  /**
+   * Combines multiple items into one package and converts to JSON string
+   *
+   * @param {Builder[]} items
+   * @returns {string}
+   */
   static combineToJSON(items: Builder[]): string {
     return JSON.stringify(Combinator.combine(items));
   }

@@ -1,4 +1,4 @@
-import { paymentSdkConfigType } from "../index";
+import { paymentSdkConfigType } from "./types";
 
 import { XcooBeePaymentSDK } from "./XcooBeePaymentSDK";
 

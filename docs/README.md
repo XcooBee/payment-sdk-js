@@ -1,3 +1,7 @@
+[payment-sdk](README.md) › [Globals](globals.md)
+
+# payment-sdk
+
 # XcooBee Contactless Payment SDK for
 
 ## Description
@@ -26,7 +30,7 @@ npm i @xcoobee/payment-sdk-js easyqrcodejs-nodejs
 npm i @xcoobee/payment-sdk-js easyqrcodejs
 ```
 
-to use without qr generator or to provide your own please use this [link](note.md)
+to use without qr generator or to provide your own please use this ["link"](note.md)
 
 ## Documentation
 

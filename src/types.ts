@@ -1,7 +1,4 @@
-// Type definitions for xcoobee-payment-sdk
-// Project: xcoobee-payment-sdk
-
-import { flexPaymentActions } from "./src/config";
+import { flexPaymentActions } from "./config";
 
 export type paymentSdkConfigType = {
   campaignId: string;

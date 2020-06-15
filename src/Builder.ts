@@ -5,7 +5,7 @@ import {
   listWithCostType,
   logicReferenceOptionType,
   simpleListType,
-} from "../index";
+} from "./types";
 
 import {
   conflictingActions,
@@ -16,12 +16,21 @@ import {
   optionsLimit,
 } from "./config";
 
+/**
+ * @class Builder
+ */
 export class Builder {
   private amount?: number;
   private tax?: number;
   private reference?: string;
   private logic: flexLogicType[] = [];
 
+  /**
+   * Validates single logic item
+   *
+   * @param {flexLogicType} logic
+   * @returns {string | null}
+   */
   static validateLogic(logic: flexLogicType): string | null {
     const { a, r, o, m, M } = logic;
 
@@ -124,21 +133,42 @@ export class Builder {
     return `${this.reference}${this.amount}${this.tax}`;
   }
 
+  /**
+   * Sets an amount
+   * @param {number} amount
+   * @returns {Builder}
+   */
   setAmount(amount: number): Builder {
     this.amount = amount;
     return this;
   }
 
+  /**
+   * Sets tax
+   * @param {number} tax
+   * @returns {Builder}
+   */
   setTax(tax: number): Builder {
     this.tax = tax;
     return this;
   }
 
+  /**
+   * Sets reference
+   * @param {string} reference
+   * @returns {Builder}
+   */
   setReference(reference: string): Builder {
     this.reference = reference;
     return this;
   }
 
+  /**
+   * Populates data from raw data package
+   *
+   * @param {flexItemType} config
+   * @returns {Builder}
+   */
   fromRaw(config: flexItemType): Builder {
     this.amount = config["0-3"];
     this.tax = config["0-5"];
@@ -152,10 +182,21 @@ export class Builder {
     return this;
   }
 
+  /**
+   * Checks whether current item has given action
+   *
+   * @param {flexPaymentActions} action
+   * @returns {boolean}
+   */
   hasAction(action: flexPaymentActions) {
     return this.logic.some((item) => item.a === action);
   }
 
+  /**
+   * Validates requirements for amount\tax\reference fields
+   *
+   * @returns {string | null} - returns error text or null
+   */
   validate(): string | null {
     if (this.hasAction(flexPaymentActions.setTip)) {
       return null;
@@ -196,6 +237,13 @@ export class Builder {
     }
   }
 
+  /**
+   * Adds logic to current item
+   *
+   * @throws {Error}
+   * @param {flexLogicType} item
+   * @returns {Builder}
+   */
   addLogic(item: flexLogicType): Builder {
     const err = Builder.validateLogic(item);
 
@@ -229,27 +277,69 @@ export class Builder {
     return this;
   }
 
+  /**
+   * Clears logic for current item
+   *
+   * @returns {Builder}
+   */
   clearLogic(): Builder {
     this.logic = [];
     return this;
   }
 
+  /**
+   * Makes current item a tip item
+   * This will render separte item in basket with tip inputs
+   *
+   * @returns {Builder}
+   */
   makeTip(): Builder {
     return this.addLogic({ a: flexPaymentActions.setTip });
   }
 
+  /**
+   * Makes current item a total item
+   * This item will replace all current basket with it
+   * Can be used with Tip
+   *
+   * @returns {Builder}
+   */
   makeTotal(): Builder {
     return this.addLogic({ a: flexPaymentActions.setTotal });
   }
 
+  /**
+   * Allows user to enter amount for this item
+   *
+   * @returns {Builder}
+   */
   makeUserEntry(): Builder {
     return this.addLogic({ a: flexPaymentActions.userEntry });
   }
 
+  /**
+   * Loads pricing\description\image\logic from external source using `priceCode`
+   *
+   * @param {string} priceCode
+   * @returns {Builder}
+   */
   makeExternal(priceCode: string): Builder {
     return this.addLogic({ a: flexPaymentActions.externalPricing, r: priceCode });
   }
 
+  /**
+   * Adds extra item to basket, for which amount is calculated based on total basket amount
+   * Can be used for taxes or extra fees e.t.c.
+   * At least one of percentage|min must be provided
+   * percentage should be given in range [-1:1]
+   * min is fixed amount
+   *
+   * @param {{}} config
+   * @param {string} config.reference
+   * @param {number} [config.percentage]
+   * @param {number} [config.min]
+   * @returns {Builder}
+   */
   addPercentageOrMin(config: {
     reference: string;
     percentage?: number;
@@ -263,6 +353,19 @@ export class Builder {
     });
   }
 
+  /**
+   * Adds extra item to basket, for which amount is calculated based on total basket amount
+   * Can be used for taxes or extra fees e.t.c.
+   * At least one of percentage|max must be provided
+   * percentage should be given in range [-1:1]
+   * max is fixed amount
+   *
+   * @param {{}} config
+   * @param {string} config.reference
+   * @param {number} [config.percentage]
+   * @param {number} [config.max]
+   * @returns {Builder}
+   */
   addPercentageOrMax(config: {
     reference: string;
     percentage?: number;
@@ -276,18 +379,46 @@ export class Builder {
     });
   }
 
+  /**
+   * Adds list with additions options inside current item to choose one of them
+   *
+   * @param {simpleListType} options
+   * @param options
+   * @returns {Builder}
+   */
   addRadio(options: simpleListType): Builder {
     return this.addLogic({ a: flexPaymentActions.addSubRadio, r: options });
   }
 
+  /**
+   * Adds list with additions options, with extra cost for each, inside current item to choose one of them
+   *
+   * @param {listWithCostType} options
+   * @param options
+   * @returns {Builder}
+   */
   addRadioWithCost(options: listWithCostType): Builder {
     return this.addLogic({ a: flexPaymentActions.addSubRadioWithExtraCost, r: options });
   }
 
+  /**
+   * Adds list with additions options inside current item to choose any of them
+   *
+   * @param {simpleListType} options
+   * @param options
+   * @returns {Builder}
+   */
   addCheckboxes(options: simpleListType): Builder {
     return this.addLogic({ a: flexPaymentActions.addSubCheckbox, r: options });
   }
 
+  /**
+   * Adds list with additions options, with extra cost for each, inside current item to choose any of them
+   *
+   * @param {listWithCostType} options
+   * @param options
+   * @returns {Builder}
+   */
   addCheckboxesWithCost(options: listWithCostType): Builder {
     return this.addLogic({
       a: flexPaymentActions.addSubCheckboxWithExtraCost,
@@ -295,6 +426,12 @@ export class Builder {
     });
   }
 
+  /**
+   * Validates and transforms builder instance into object
+   *
+   * @throws {Error}
+   * @returns {flexItemType}
+   */
   toJSON(): flexItemType {
     const err = this.validate();
 

@@ -6,7 +6,7 @@ import {
   paymentSdkConfigType,
   QrGeneratorInterface,
   qrType,
-} from "../index";
+} from "./types";
 
 import {
   appUrl,
@@ -20,6 +20,9 @@ import {
 import { Builder } from "./Builder";
 import { Combinator } from "./Combinator";
 
+/**
+ * class XcooBeePaymentSDK
+ */
 export class XcooBeePaymentSDK {
   private readonly campaignId: string;
   private readonly formId?: string;
@@ -68,13 +71,25 @@ export class XcooBeePaymentSDK {
     this.qrGenerator = qrGenerator;
   }
 
-  getQrGenerator() {
+  /**
+   * Returns qr generator if provided
+   *
+   * @returns {QrGeneratorInterface}
+   */
+  getQrGenerator(): QrGeneratorInterface {
     if (!this.qrGenerator) {
       throw new Error("qrGenerator was not provided");
     }
     return this.qrGenerator;
   }
 
+  /**
+   * Converts data package to url
+   *
+   * @throws {Error}
+   * @param {Builder[]} flexItems
+   * @returns {string}
+   */
   getUrl(flexItems: Builder[] = []): string {
     const dataPackage = flexItems.length
       ? this.base64.btoa(Combinator.combineToJSON(flexItems))
@@ -108,6 +123,13 @@ export class XcooBeePaymentSDK {
     return url;
   }
 
+  /**
+   * Converts data package to url
+   *
+   * @throws {Error}
+   * @param {defaultPayUrlConfigType} config
+   * @returns {string}
+   */
   createPayUrl(config: defaultPayUrlConfigType): string {
     const total = new Builder({
       amount: config.amount,
