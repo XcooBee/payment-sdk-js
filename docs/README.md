@@ -30,11 +30,11 @@ npm i @xcoobee/payment-sdk-js easyqrcodejs-nodejs
 npm i @xcoobee/payment-sdk-js easyqrcodejs
 ```
 
-to use without qr generator or to provide your own please use this ["link"](note.md)
+to use without qr generator or to provide your own please use this [link](note.md)
 
 ## Documentation
 
-To overview documentation please follow documentation link.
+To overview documentation please follow documentation [link](docs/globals.md).
 
 ## Deployment
 

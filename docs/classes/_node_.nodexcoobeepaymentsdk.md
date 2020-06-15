@@ -1,131 +1,65 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["XcooBeePaymentSDK"](../modules/_xcoobeepaymentsdk_.md) › [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)
+[payment-sdk](../README.md) › [Globals](../globals.md) › ["node"](../modules/_node_.md) › [NodeXcooBeePaymentSDK](_node_.nodexcoobeepaymentsdk.md)
 
-# Class: XcooBeePaymentSDK
-
-class XcooBeePaymentSDK
+# Class: NodeXcooBeePaymentSDK
 
 ## Hierarchy
 
-* **XcooBeePaymentSDK**
+* [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)
 
-  ↳ [NodeXcooBeePaymentSDK](_node_.nodexcoobeepaymentsdk.md)
+  ↳ **NodeXcooBeePaymentSDK**
 
 ## Index
 
 ### Constructors
 
-* [constructor](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#constructor)
-
-### Properties
-
-* [base64](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-base64)
-* [campaignId](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-readonly-campaignid)
-* [deviceId](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-optional-readonly-deviceid)
-* [formId](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-optional-readonly-formid)
-* [qrGenerator](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-optional-qrgenerator)
-* [source](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-optional-readonly-source)
-* [xcoobeeDeviceId](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#private-optional-readonly-xcoobeedeviceid)
+* [constructor](_node_.nodexcoobeepaymentsdk.md#constructor)
 
 ### Methods
 
-* [createExternalReferenceQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createexternalreferenceqr)
-* [createExternalReferenceUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createexternalreferenceurl)
-* [createMultiSelectQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectqr)
-* [createMultiSelectUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselecturl)
-* [createMultiSelectWithCostQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectwithcostqr)
-* [createMultiSelectWithCostUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectwithcosturl)
-* [createPayQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayqr)
-* [createPayQrWithTip](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayqrwithtip)
-* [createPayUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayurl)
-* [createPayUrlWithTip](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayurlwithtip)
-* [createSingleItemQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleitemqr)
-* [createSingleItemUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleitemurl)
-* [createSingleSelectQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectqr)
-* [createSingleSelectUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselecturl)
-* [createSingleSelectWithCostQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectwithcostqr)
-* [createSingleSelectWithCostUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectwithcosturl)
-* [getQrGenerator](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#getqrgenerator)
-* [getUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#geturl)
+* [createExternalReferenceQr](_node_.nodexcoobeepaymentsdk.md#createexternalreferenceqr)
+* [createExternalReferenceUrl](_node_.nodexcoobeepaymentsdk.md#createexternalreferenceurl)
+* [createMultiSelectQr](_node_.nodexcoobeepaymentsdk.md#createmultiselectqr)
+* [createMultiSelectUrl](_node_.nodexcoobeepaymentsdk.md#createmultiselecturl)
+* [createMultiSelectWithCostQr](_node_.nodexcoobeepaymentsdk.md#createmultiselectwithcostqr)
+* [createMultiSelectWithCostUrl](_node_.nodexcoobeepaymentsdk.md#createmultiselectwithcosturl)
+* [createPayQr](_node_.nodexcoobeepaymentsdk.md#createpayqr)
+* [createPayQrWithTip](_node_.nodexcoobeepaymentsdk.md#createpayqrwithtip)
+* [createPayUrl](_node_.nodexcoobeepaymentsdk.md#createpayurl)
+* [createPayUrlWithTip](_node_.nodexcoobeepaymentsdk.md#createpayurlwithtip)
+* [createSingleItemQr](_node_.nodexcoobeepaymentsdk.md#createsingleitemqr)
+* [createSingleItemUrl](_node_.nodexcoobeepaymentsdk.md#createsingleitemurl)
+* [createSingleSelectQr](_node_.nodexcoobeepaymentsdk.md#createsingleselectqr)
+* [createSingleSelectUrl](_node_.nodexcoobeepaymentsdk.md#createsingleselecturl)
+* [createSingleSelectWithCostQr](_node_.nodexcoobeepaymentsdk.md#createsingleselectwithcostqr)
+* [createSingleSelectWithCostUrl](_node_.nodexcoobeepaymentsdk.md#createsingleselectwithcosturl)
+* [getQrGenerator](_node_.nodexcoobeepaymentsdk.md#getqrgenerator)
+* [getUrl](_node_.nodexcoobeepaymentsdk.md#geturl)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new XcooBeePaymentSDK**(`config`: [paymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype), `base64`: [Base64Interface](../interfaces/_types_.base64interface.md), `qrGenerator?`: [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)): *[XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)*
+\+ **new NodeXcooBeePaymentSDK**(`config`: [paymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype)): *[NodeXcooBeePaymentSDK](_node_.nodexcoobeepaymentsdk.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L33)*
+*Overrides [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[constructor](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#constructor)*
+
+*Defined in [node.ts:38](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/node.ts#L38)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `config` | [paymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype) |
-`base64` | [Base64Interface](../interfaces/_types_.base64interface.md) |
-`qrGenerator?` | [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md) |
 
-**Returns:** *[XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)*
-
-## Properties
-
-### `Private` base64
-
-• **base64**: *[Base64Interface](../interfaces/_types_.base64interface.md)*
-
-*Defined in [XcooBeePaymentSDK.ts:32](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L32)*
-
-___
-
-### `Private` `Readonly` campaignId
-
-• **campaignId**: *string*
-
-*Defined in [XcooBeePaymentSDK.ts:27](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L27)*
-
-___
-
-### `Private` `Optional` `Readonly` deviceId
-
-• **deviceId**? : *string*
-
-*Defined in [XcooBeePaymentSDK.ts:29](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L29)*
-
-___
-
-### `Private` `Optional` `Readonly` formId
-
-• **formId**? : *string*
-
-*Defined in [XcooBeePaymentSDK.ts:28](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L28)*
-
-___
-
-### `Private` `Optional` qrGenerator
-
-• **qrGenerator**? : *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
-
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L33)*
-
-___
-
-### `Private` `Optional` `Readonly` source
-
-• **source**? : *string*
-
-*Defined in [XcooBeePaymentSDK.ts:31](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L31)*
-
-___
-
-### `Private` `Optional` `Readonly` xcoobeeDeviceId
-
-• **xcoobeeDeviceId**? : *string*
-
-*Defined in [XcooBeePaymentSDK.ts:30](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L30)*
+**Returns:** *[NodeXcooBeePaymentSDK](_node_.nodexcoobeepaymentsdk.md)*
 
 ## Methods
 
 ###  createExternalReferenceQr
 
 ▸ **createExternalReferenceQr**(`priceCode`: string, `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createExternalReferenceQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createexternalreferenceqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:262](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L262)*
 
@@ -144,6 +78,8 @@ ___
 
 ▸ **createExternalReferenceUrl**(`priceCode`: string): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createExternalReferenceUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createexternalreferenceurl)*
+
 *Defined in [XcooBeePaymentSDK.ts:256](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L256)*
 
 **Parameters:**
@@ -159,6 +95,8 @@ ___
 ###  createMultiSelectQr
 
 ▸ **createMultiSelectQr**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createMultiSelectQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:229](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L229)*
 
@@ -177,6 +115,8 @@ ___
 
 ▸ **createMultiSelectUrl**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createMultiSelectUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselecturl)*
+
 *Defined in [XcooBeePaymentSDK.ts:219](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L219)*
 
 **Parameters:**
@@ -192,6 +132,8 @@ ___
 ###  createMultiSelectWithCostQr
 
 ▸ **createMultiSelectWithCostQr**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createMultiSelectWithCostQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectwithcostqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:246](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L246)*
 
@@ -210,6 +152,8 @@ ___
 
 ▸ **createMultiSelectWithCostUrl**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createMultiSelectWithCostUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createmultiselectwithcosturl)*
+
 *Defined in [XcooBeePaymentSDK.ts:236](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L236)*
 
 **Parameters:**
@@ -225,6 +169,8 @@ ___
 ###  createPayQr
 
 ▸ **createPayQr**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createPayQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:143](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L143)*
 
@@ -243,6 +189,8 @@ ___
 
 ▸ **createPayQrWithTip**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createPayQrWithTip](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayqrwithtip)*
+
 *Defined in [XcooBeePaymentSDK.ts:158](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L158)*
 
 **Parameters:**
@@ -259,6 +207,8 @@ ___
 ###  createPayUrl
 
 ▸ **createPayUrl**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createPayUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayurl)*
 
 *Defined in [XcooBeePaymentSDK.ts:133](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L133)*
 
@@ -280,6 +230,8 @@ ___
 
 ▸ **createPayUrlWithTip**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createPayUrlWithTip](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createpayurlwithtip)*
+
 *Defined in [XcooBeePaymentSDK.ts:147](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L147)*
 
 **Parameters:**
@@ -295,6 +247,8 @@ ___
 ###  createSingleItemQr
 
 ▸ **createSingleItemQr**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleItemQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleitemqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:175](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L175)*
 
@@ -313,6 +267,8 @@ ___
 
 ▸ **createSingleItemUrl**(`config`: [defaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleItemUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleitemurl)*
+
 *Defined in [XcooBeePaymentSDK.ts:165](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L165)*
 
 **Parameters:**
@@ -328,6 +284,8 @@ ___
 ###  createSingleSelectQr
 
 ▸ **createSingleSelectQr**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleSelectQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:192](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L192)*
 
@@ -346,6 +304,8 @@ ___
 
 ▸ **createSingleSelectUrl**(`config`: [listPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleSelectUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselecturl)*
+
 *Defined in [XcooBeePaymentSDK.ts:182](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L182)*
 
 **Parameters:**
@@ -361,6 +321,8 @@ ___
 ###  createSingleSelectWithCostQr
 
 ▸ **createSingleSelectWithCostQr**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[qrType](../modules/_types_.md#qrtype)*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleSelectWithCostQr](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectwithcostqr)*
 
 *Defined in [XcooBeePaymentSDK.ts:209](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L209)*
 
@@ -379,6 +341,8 @@ ___
 
 ▸ **createSingleSelectWithCostUrl**(`config`: [listWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[createSingleSelectWithCostUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#createsingleselectwithcosturl)*
+
 *Defined in [XcooBeePaymentSDK.ts:199](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L199)*
 
 **Parameters:**
@@ -395,6 +359,8 @@ ___
 
 ▸ **getQrGenerator**(): *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
 
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[getQrGenerator](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#getqrgenerator)*
+
 *Defined in [XcooBeePaymentSDK.ts:79](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L79)*
 
 Returns qr generator if provided
@@ -406,6 +372,8 @@ ___
 ###  getUrl
 
 ▸ **getUrl**(`flexItems`: [Builder](_builder_.builder.md)[]): *string*
+
+*Inherited from [XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md).[getUrl](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md#geturl)*
 
 *Defined in [XcooBeePaymentSDK.ts:93](https://github.com/XcooBee/payment-sdk-js/blob/f33edaa/src/XcooBeePaymentSDK.ts#L93)*
 
