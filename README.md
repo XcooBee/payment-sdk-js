@@ -30,7 +30,7 @@ to use without qr generator or to provide your own please use this [link](note.m
 
 ## Documentation
 
-To overview documentation please follow documentation link.
+To overview documentation please follow documentation [link](docs/globals.md).
 
 ## Deployment
 
