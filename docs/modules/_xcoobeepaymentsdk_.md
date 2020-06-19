@@ -1,4 +1,4 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["XcooBeePaymentSDK"](_xcoobeepaymentsdk_.md)
+[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["XcooBeePaymentSDK"](_xcoobeepaymentsdk_.md)
 
 # Module: "XcooBeePaymentSDK"
 

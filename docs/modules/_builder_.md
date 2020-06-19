@@ -1,4 +1,4 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["Builder"](_builder_.md)
+[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["Builder"](_builder_.md)
 
 # Module: "Builder"
 

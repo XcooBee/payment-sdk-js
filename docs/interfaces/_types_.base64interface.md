@@ -1,4 +1,4 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["types"](../modules/_types_.md) › [Base64Interface](_types_.base64interface.md)
+[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["types"](../modules/_types_.md) › [Base64Interface](_types_.base64interface.md)
 
 # Interface: Base64Interface
 
@@ -19,7 +19,7 @@
 
 ▸ **atob**(`base64`: string): *string*
 
-*Defined in [types.ts:49](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L49)*
+*Defined in [types.ts:49](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/types.ts#L49)*
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ ___
 
 ▸ **btoa**(`content`: string): *string*
 
-*Defined in [types.ts:51](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/types.ts#L51)*
+*Defined in [types.ts:51](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/types.ts#L51)*
 
 **Parameters:**
 

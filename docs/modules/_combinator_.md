@@ -1,4 +1,4 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["Combinator"](_combinator_.md)
+[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["Combinator"](_combinator_.md)
 
 # Module: "Combinator"
 

@@ -1,5 +1,5 @@
 {
-  "name": "payment-sdk",
+  "name": "@xcoobee/payment-sdk",
   "author": "",
   "license": "ISC",
   "version": "1.0.0",
@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/XcooBee/payment-sdk-js/issues"
   },
+  "files": [
+    "dist/"
+  ],
   "main": "dist/node/node.js",
   "module": "dist/node/node.js",
   "browser": "dist/browser/browser.js",
@@ -19,7 +22,7 @@
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "docs": "typedoc",
-    "start": "tsc && tsc -p tsconfig.browser.json"
+    "build": "tsc && tsc -p tsconfig.browser.json"
   },
   "prettier": {
     "printWidth": 90,

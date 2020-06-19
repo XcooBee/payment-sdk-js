@@ -1,12 +1,12 @@
-# XcooBee Contactless Payment SDK for
+# XcooBee Contactless Payment SDK for JavaScript
 
 ## Description
 
-The XcooBee contactless payment system is a complete shopping cart and checkout system that can be included in your projects (mobile or web) quickly. In order to fully use this you will need a XcooBee account ( Professional, Business, or Enterprise) and an active “Payment Project” created.
+The XcooBee contactless payment system is a complete shopping cart and checkout system that can be included in your projects (mobile or web) quickly. In order to fully use this, you will need a XcooBee account ( Professional, Business, or Enterprise) and an active “Payment Project” created.
 
 The SDK simplifies the generation of URLs and QRs. Smart QRs and URLs can cover many different use cases.
 
-The URLs can be send to remote user or embedded in a website to quickly add a shopping cart system with a few lines. Examples of this could be "Pay" button or links "add to cart" links for merchandise that is sold on the site.
+The URLs can be sent to remote users or embedded in a website to quickly add a shopping cart system with a few lines. Examples of this could be "Pay" buttons or "Add to Cart" links for merchandise that is sold on the site.
 
 The URLs can help you build a very simply shopping system that is focused on cart and checkout. Nothing else is needed.
 
@@ -26,16 +26,16 @@ npm i @xcoobee/payment-sdk easyqrcodejs-nodejs
 npm i @xcoobee/payment-sdk easyqrcodejs
 ```
 
-to use without qr generator or to provide your own please use this [link](note.md)
+To use without QR generator or to provide your own please use this [link](note.md)
 
 ## Documentation
 
-To overview documentation please follow documentation [link](docs/globals.md).
+See the [complete documentation here](docs/globals.md).
 
 ## Deployment
 
 ```
-npm start
+npm run build
 ```
 
 ## Tests

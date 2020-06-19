@@ -1,6 +1,6 @@
-[payment-sdk](README.md) › [Globals](globals.md)
+[@xcoobee/payment-sdk](README.md) › [Globals](globals.md)
 
-# payment-sdk
+# @xcoobee/payment-sdk
 
 ## Index
 

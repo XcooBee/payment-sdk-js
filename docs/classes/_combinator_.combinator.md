@@ -1,4 +1,4 @@
-[payment-sdk](../README.md) › [Globals](../globals.md) › ["Combinator"](../modules/_combinator_.md) › [Combinator](_combinator_.combinator.md)
+[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["Combinator"](../modules/_combinator_.md) › [Combinator](_combinator_.combinator.md)
 
 # Class: Combinator
 
@@ -21,7 +21,7 @@ class Combinator
 
 ▸ **combine**(`items`: [Builder](_builder_.builder.md)[]): *[Builder](_builder_.builder.md)[]*
 
-*Defined in [Combinator.ts:15](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/Combinator.ts#L15)*
+*Defined in [Combinator.ts:15](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Combinator.ts#L15)*
 
 Combines multiple items into one package
 
@@ -39,7 +39,7 @@ ___
 
 ▸ **combineToJSON**(`items`: [Builder](_builder_.builder.md)[]): *string*
 
-*Defined in [Combinator.ts:42](https://github.com/XcooBee/payment-sdk-js/blob/279407d/src/Combinator.ts#L42)*
+*Defined in [Combinator.ts:42](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Combinator.ts#L42)*
 
 Combines multiple items into one package and converts to JSON string
 

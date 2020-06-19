@@ -3,10 +3,6 @@
  */
 import { FlexPaymentActions } from "./types";
 
-export const flexPaymentActionsList = Object.keys(FlexPaymentActions).map(
-  (key) => FlexPaymentActions[key]
-) as number[];
-
 export const conflictingActions = [
   FlexPaymentActions.externalPricing,
   FlexPaymentActions.userEntry,
