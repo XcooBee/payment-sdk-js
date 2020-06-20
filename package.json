@@ -1,8 +1,10 @@
 {
   "name": "@xcoobee/payment-sdk",
-  "author": "",
-  "license": "ISC",
-  "version": "0.8.0",
+  "author": "Sergey S",
+  "contributors": ["Bilal S", "Dan H"],
+  "publishConfig": {"access": "public"},
+  "license": "Apache-2.0",
+  "version": "0.8.1",
   "description": "",
   "homepage": "https://github.com/XcooBee/payment-sdk-js#readme",
   "repository": {
