@@ -8,7 +8,8 @@
     "outDir": "./dist/browser",
     "target": "es5",
     "module": "es2015",
-    "lib": ["es2016", "dom", "es5"]
+    "lib": ["es2016", "dom", "es5"],
+    "declaration": true
   },
   "files": ["src/browser.ts"],
   "exclude": ["node_modules"]
