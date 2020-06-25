@@ -42,10 +42,7 @@
     }
   },
   "lint-staged": {
-    "*.{sass,css,json,scss}": [
-      "prettier --write"
-    ],
-    "*.{js,jsx}": [
+    "*.ts": [
       "prettier --write",
       "tslint"
     ]
