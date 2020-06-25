@@ -27,7 +27,7 @@
   "browser": "dist/browser/browser.js",
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+    "coverage": "nyc --check-coverage -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "docs": "rm -rf ./docs && typedoc",
     "build": "tsc && tsc -p tsconfig.browser.json"
   },
