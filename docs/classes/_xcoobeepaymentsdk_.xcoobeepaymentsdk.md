@@ -53,7 +53,7 @@ class XcooBeePaymentSDK
 
 \+ **new XcooBeePaymentSDK**(`config`: [PaymentSdkConfigType](../modules/_types_.md#paymentsdkconfigtype), `base64`: [Base64Interface](../interfaces/_types_.base64interface.md), `qrGenerator?`: [QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)): *[XcooBeePaymentSDK](_xcoobeepaymentsdk_.xcoobeepaymentsdk.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L33)*
+*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L33)*
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ Name | Type |
 
 • **base64**: *[Base64Interface](../interfaces/_types_.base64interface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:32](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L32)*
+*Defined in [XcooBeePaymentSDK.ts:32](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L32)*
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **campaignId**: *string*
 
-*Defined in [XcooBeePaymentSDK.ts:27](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L27)*
+*Defined in [XcooBeePaymentSDK.ts:27](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L27)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **deviceId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:29](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L29)*
+*Defined in [XcooBeePaymentSDK.ts:29](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L29)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 • **formId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:28](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L28)*
+*Defined in [XcooBeePaymentSDK.ts:28](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L28)*
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 • **qrGenerator**? : *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L33)*
+*Defined in [XcooBeePaymentSDK.ts:33](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L33)*
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 • **source**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:31](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L31)*
+*Defined in [XcooBeePaymentSDK.ts:31](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L31)*
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 • **xcoobeeDeviceId**? : *string*
 
-*Defined in [XcooBeePaymentSDK.ts:30](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L30)*
+*Defined in [XcooBeePaymentSDK.ts:30](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L30)*
 
 ## Methods
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **createExternalReferenceQr**(`priceCode`: string, `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:381](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L381)*
+*Defined in [XcooBeePaymentSDK.ts:381](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L381)*
 
 Create QR to add single item to basket
 Pricing description and image will be loaded from external source using priceCode
@@ -149,7 +149,7 @@ ___
 
 ▸ **createExternalReferenceUrl**(`priceCode`: string): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:366](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L366)*
+*Defined in [XcooBeePaymentSDK.ts:366](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L366)*
 
 Create url to add single item to basket
 Pricing description and image will be loaded from external source using priceCode
@@ -170,7 +170,7 @@ ___
 
 ▸ **createMultiSelectQr**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:314](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L314)*
+*Defined in [XcooBeePaymentSDK.ts:314](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L314)*
 
 Create QR to add single item to basket where user can select multiple additional options from a list of given options
 
@@ -191,7 +191,7 @@ ___
 
 ▸ **createMultiSelectUrl**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:296](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L296)*
+*Defined in [XcooBeePaymentSDK.ts:296](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L296)*
 
 Create url to add single item to basket where user can select multiple additional options from a list of given options
 
@@ -211,7 +211,7 @@ ___
 
 ▸ **createMultiSelectWithCostQr**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:348](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L348)*
+*Defined in [XcooBeePaymentSDK.ts:348](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L348)*
 
 Create QR to add single item to basket where user can select multiple additional options from a list of given options
 Each option can have extra price
@@ -233,7 +233,7 @@ ___
 
 ▸ **createMultiSelectWithCostUrl**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:329](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L329)*
+*Defined in [XcooBeePaymentSDK.ts:329](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L329)*
 
 Create url to add single item to basket where user can select multiple additional options from a list of given options
 Each option can have extra price
@@ -254,7 +254,7 @@ ___
 
 ▸ **createPayQr**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:151](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L151)*
+*Defined in [XcooBeePaymentSDK.ts:151](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L151)*
 
 Create simple payment request QR
 
@@ -275,7 +275,7 @@ ___
 
 ▸ **createPayQrWithTip**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:181](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L181)*
+*Defined in [XcooBeePaymentSDK.ts:181](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L181)*
 
 Create payment request QR with tip
 
@@ -296,7 +296,7 @@ ___
 
 ▸ **createPayUrl**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:133](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L133)*
+*Defined in [XcooBeePaymentSDK.ts:133](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L133)*
 
 Create simple payment request URL
 
@@ -316,7 +316,7 @@ ___
 
 ▸ **createPayUrlWithTip**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:162](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L162)*
+*Defined in [XcooBeePaymentSDK.ts:162](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L162)*
 
 Create payment request URL with tip
 
@@ -336,7 +336,7 @@ ___
 
 ▸ **createSingleItemQr**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:213](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L213)*
+*Defined in [XcooBeePaymentSDK.ts:213](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L213)*
 
 Create QR to add single item to basket where user can enter amount for this item
 
@@ -357,7 +357,7 @@ ___
 
 ▸ **createSingleItemUrl**(`config`: [DefaultPayUrlConfigType](../modules/_types_.md#defaultpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:195](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L195)*
+*Defined in [XcooBeePaymentSDK.ts:195](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L195)*
 
 Create url to add single item to basket where user can enter amount for this item
 
@@ -377,7 +377,7 @@ ___
 
 ▸ **createSingleSelectQr**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:245](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L245)*
+*Defined in [XcooBeePaymentSDK.ts:245](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L245)*
 
 Create QR to add single item to basket where user can select one additional option from a list of given options
 
@@ -398,7 +398,7 @@ ___
 
 ▸ **createSingleSelectUrl**(`config`: [ListPayUrlConfigType](../modules/_types_.md#listpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:227](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L227)*
+*Defined in [XcooBeePaymentSDK.ts:227](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L227)*
 
 Create url to add single item to basket where user can select one additional option from a list of given options
 
@@ -418,7 +418,7 @@ ___
 
 ▸ **createSingleSelectWithCostQr**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype), `size`: number): *[QrType](../modules/_types_.md#qrtype)*
 
-*Defined in [XcooBeePaymentSDK.ts:279](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L279)*
+*Defined in [XcooBeePaymentSDK.ts:279](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L279)*
 
 Create QR to add single item to basket where user can select one additional option from a list of given options
 Each option can have extra price
@@ -440,7 +440,7 @@ ___
 
 ▸ **createSingleSelectWithCostUrl**(`config`: [ListWithCostPayUrlConfigType](../modules/_types_.md#listwithcostpayurlconfigtype)): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:260](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L260)*
+*Defined in [XcooBeePaymentSDK.ts:260](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L260)*
 
 Create url to add single item to basket where user can select one additional option from a list of given options
 Each option can have extra price
@@ -461,7 +461,7 @@ ___
 
 ▸ **getQrGenerator**(): *[QrGeneratorInterface](../interfaces/_types_.qrgeneratorinterface.md)*
 
-*Defined in [XcooBeePaymentSDK.ts:79](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L79)*
+*Defined in [XcooBeePaymentSDK.ts:79](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L79)*
 
 Returns qr generator if provided
 
@@ -473,7 +473,7 @@ ___
 
 ▸ **getUrl**(`flexItems`: [Builder](_builder_.builder.md)[]): *string*
 
-*Defined in [XcooBeePaymentSDK.ts:93](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/XcooBeePaymentSDK.ts#L93)*
+*Defined in [XcooBeePaymentSDK.ts:93](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/XcooBeePaymentSDK.ts#L93)*
 
 Converts data package to url
 

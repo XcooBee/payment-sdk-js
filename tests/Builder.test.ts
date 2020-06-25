@@ -21,6 +21,12 @@ const testRaw = {
   "0-6": "Test",
 };
 
+const anotherTestRaw = {
+  "0-3": 2,
+  "0-5": 2,
+  "0-6": "Hello there",
+};
+
 const invalidReference = "TestTestTestTestTestTestTestTestTestTestTest";
 
 const testLogic = { a: FlexPaymentActions.setTotal };
@@ -59,7 +65,7 @@ describe("Builder test", () => {
   it("should generate item key", () => {
     const builder = new Builder({ ...testItem, logic: testLogic });
 
-    expect(builder.getKey()).to.equal("Test11");
+    expect(builder.getKey()).to.equal("Test_1_1");
   });
 
   it("should set amount", () => {
@@ -82,6 +88,9 @@ describe("Builder test", () => {
 
   it("should populate from raw entry", () => {
     const builderWithLogic = new Builder().fromRaw({ ...testRaw, l: testLogic });
+    const builderFromMultipleRaw = new Builder()
+      .fromRaw({ ...testRaw, l: testLogic })
+      .fromRaw(anotherTestRaw);
     const builderWithMultiLogic = new Builder().fromRaw({
       ...testRaw,
       l: [testLogic, testLogic],
@@ -97,6 +106,7 @@ describe("Builder test", () => {
       ...testRaw,
       l: testLogic,
     });
+    expect(builderFromMultipleRaw.toJSON()).to.deep.equal(anotherTestRaw);
   });
 
   it("should check if action is presented", () => {

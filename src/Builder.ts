@@ -138,7 +138,7 @@ export class Builder {
   }
 
   getKey(): string {
-    return `${this.reference}${this.amount}${this.tax}`;
+    return `${this.reference}_${this.amount}_${this.tax}`;
   }
 
   /**
@@ -181,6 +181,7 @@ export class Builder {
     this.amount = config["0-3"];
     this.tax = config["0-5"];
     this.reference = config["0-6"];
+    this.logic = [];
 
     if (config.l) {
       (Array.isArray(config.l) ? config.l : [config.l]).forEach((item) =>

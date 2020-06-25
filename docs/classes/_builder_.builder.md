@@ -49,7 +49,7 @@
 
 \+ **new Builder**(`config?`: [FlexItemHumanizedType](../modules/_types_.md#flexitemhumanizedtype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:123](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L123)*
+*Defined in [Builder.ts:123](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L123)*
 
 **Parameters:**
 
@@ -65,7 +65,7 @@ Name | Type |
 
 • **amount**? : *number*
 
-*Defined in [Builder.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L23)*
+*Defined in [Builder.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L23)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **logic**: *[FlexLogicType](../modules/_types_.md#flexlogictype)[]* = []
 
-*Defined in [Builder.ts:26](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L26)*
+*Defined in [Builder.ts:26](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L26)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 • **reference**? : *string*
 
-*Defined in [Builder.ts:25](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L25)*
+*Defined in [Builder.ts:25](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L25)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 • **tax**? : *number*
 
-*Defined in [Builder.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L24)*
+*Defined in [Builder.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L24)*
 
 ## Methods
 
@@ -97,7 +97,7 @@ ___
 
 ▸ **addCheckboxes**(`options`: [SimpleListType](../modules/_types_.md#simplelisttype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:419](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L419)*
+*Defined in [Builder.ts:420](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L420)*
 
 Adds list with additions options inside current item to choose any of them
 
@@ -115,7 +115,7 @@ ___
 
 ▸ **addCheckboxesWithCost**(`options`: [ListWithCostType](../modules/_types_.md#listwithcosttype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:430](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L430)*
+*Defined in [Builder.ts:431](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L431)*
 
 Adds list with additions options, with extra cost for each, inside current item to choose any of them
 
@@ -133,7 +133,7 @@ ___
 
 ▸ **addLogic**(`item`: [FlexLogicType](../modules/_types_.md#flexlogictype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:255](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L255)*
+*Defined in [Builder.ts:256](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L256)*
 
 Adds logic to current item
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **addPercentageOrMax**(`config`: object): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:377](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L377)*
+*Defined in [Builder.ts:378](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L378)*
 
 Adds extra item to basket, for which amount is calculated based on total basket amount
 Can be used for taxes or extra fees e.t.c.
@@ -179,7 +179,7 @@ ___
 
 ▸ **addPercentageOrMin**(`config`: object): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:351](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L351)*
+*Defined in [Builder.ts:352](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L352)*
 
 Adds extra item to basket, for which amount is calculated based on total basket amount
 Can be used for taxes or extra fees e.t.c.
@@ -205,7 +205,7 @@ ___
 
 ▸ **addRadio**(`options`: [SimpleListType](../modules/_types_.md#simplelisttype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:397](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L397)*
+*Defined in [Builder.ts:398](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L398)*
 
 Adds list with additions options inside current item to choose one of them
 
@@ -223,7 +223,7 @@ ___
 
 ▸ **addRadioWithCost**(`options`: [ListWithCostType](../modules/_types_.md#listwithcosttype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:408](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L408)*
+*Defined in [Builder.ts:409](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L409)*
 
 Adds list with additions options, with extra cost for each, inside current item to choose one of them
 
@@ -241,7 +241,7 @@ ___
 
 ▸ **clearLogic**(): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:293](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L293)*
+*Defined in [Builder.ts:294](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L294)*
 
 Clears logic for current item
 
@@ -253,7 +253,7 @@ ___
 
 ▸ **fromRaw**(`config`: [FlexItemType](../modules/_types_.md#flexitemtype)): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:180](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L180)*
+*Defined in [Builder.ts:180](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L180)*
 
 Populates data from raw data package
 
@@ -271,7 +271,7 @@ ___
 
 ▸ **getKey**(): *string*
 
-*Defined in [Builder.ts:140](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L140)*
+*Defined in [Builder.ts:140](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L140)*
 
 **Returns:** *string*
 
@@ -281,7 +281,7 @@ ___
 
 ▸ **hasAction**(`action`: [FlexPaymentActions](../enums/_types_.flexpaymentactions.md)): *boolean*
 
-*Defined in [Builder.ts:199](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L199)*
+*Defined in [Builder.ts:200](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L200)*
 
 Checks whether current item has given action
 
@@ -299,7 +299,7 @@ ___
 
 ▸ **makeExternal**(`priceCode`: string): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:334](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L334)*
+*Defined in [Builder.ts:335](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L335)*
 
 Loads pricing\description\image\logic from external source using `priceCode`
 
@@ -317,7 +317,7 @@ ___
 
 ▸ **makeTip**(): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:304](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L304)*
+*Defined in [Builder.ts:305](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L305)*
 
 Makes current item a tip item
 This will render separte item in basket with tip inputs
@@ -330,7 +330,7 @@ ___
 
 ▸ **makeTotal**(): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:315](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L315)*
+*Defined in [Builder.ts:316](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L316)*
 
 Makes current item a total item
 This item will replace all current basket with it
@@ -344,7 +344,7 @@ ___
 
 ▸ **makeUserEntry**(): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:324](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L324)*
+*Defined in [Builder.ts:325](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L325)*
 
 Allows user to enter amount for this item
 
@@ -356,7 +356,7 @@ ___
 
 ▸ **setAmount**(`amount`: number): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:149](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L149)*
+*Defined in [Builder.ts:149](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L149)*
 
 Sets an amount
 
@@ -374,7 +374,7 @@ ___
 
 ▸ **setReference**(`reference`: string): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:169](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L169)*
+*Defined in [Builder.ts:169](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L169)*
 
 Sets reference
 
@@ -392,7 +392,7 @@ ___
 
 ▸ **setTax**(`tax`: number): *[Builder](_builder_.builder.md)*
 
-*Defined in [Builder.ts:159](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L159)*
+*Defined in [Builder.ts:159](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L159)*
 
 Sets tax
 
@@ -410,7 +410,7 @@ ___
 
 ▸ **toJSON**(): *[FlexItemType](../modules/_types_.md#flexitemtype)*
 
-*Defined in [Builder.ts:443](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L443)*
+*Defined in [Builder.ts:444](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L444)*
 
 Validates and transforms builder instance into object
 
@@ -424,7 +424,7 @@ ___
 
 ▸ **validate**(): *string | null*
 
-*Defined in [Builder.ts:208](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L208)*
+*Defined in [Builder.ts:209](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L209)*
 
 Validates requirements for amount\tax\reference fields
 
@@ -438,7 +438,7 @@ ___
 
 ▸ **validateLogic**(`logic`: [FlexLogicType](../modules/_types_.md#flexlogictype)): *string | null*
 
-*Defined in [Builder.ts:34](https://github.com/XcooBee/payment-sdk-js/blob/445d690/src/Builder.ts#L34)*
+*Defined in [Builder.ts:34](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/Builder.ts#L34)*
 
 Validates single logic item
 

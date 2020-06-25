@@ -1,4 +1,4 @@
-import { PaymentSdkConfigType } from "./types";
+import { PaymentSdkConfigType, QrGeneratorInterface } from "./types";
 
 import { XcooBeePaymentSDK } from "./XcooBeePaymentSDK";
 
@@ -19,7 +19,7 @@ export const base64 = {
  *
  * @implements QrGeneratorInterface
  */
-export const qrGenerator = {
+const qrGenerator: QrGeneratorInterface = {
   generate: (url: string, size: number): Promise<string> =>
     new Promise((resolve) => {
       let QrCode;
