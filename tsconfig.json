@@ -7,8 +7,16 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "outDir": "./dist/node",
-    "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": "src",
+    "plugins": [
+      {
+        "transform": "@zerollup/ts-transform-paths"
+      }
+    ],
+    "paths": {
+      "base64": ["base64/nodeBase64"]
+    }
   },
   "files": ["src/node.ts"],
   "exclude": ["node_modules"]

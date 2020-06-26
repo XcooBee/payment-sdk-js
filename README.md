@@ -30,7 +30,7 @@ To use without QR generator or to provide your own please use this [link](note.m
 
 ## Documentation
 
-See the [complete documentation here](docs/globals.md).
+See the complete documentation for [node](docs/node/README.md) and [browser](docs/browser/README.md).
 
 ## Deployment
 

@@ -1,4 +1,4 @@
-[@xcoobee/payment-sdk](../README.md) › [Globals](../globals.md) › ["types"](../modules/_types_.md) › [QrGeneratorInterface](_types_.qrgeneratorinterface.md)
+[@xcoobee/payment-sdk](../README.md) › [QrGeneratorInterface](qrgeneratorinterface.md)
 
 # Interface: QrGeneratorInterface
 
@@ -10,7 +10,7 @@
 
 ### Methods
 
-* [generate](_types_.qrgeneratorinterface.md#generate)
+* [generate](qrgeneratorinterface.md#generate)
 
 ## Methods
 
@@ -18,7 +18,7 @@
 
 ▸ **generate**(`url`: string, `size`: number): *Promise‹string›*
 
-*Defined in [types.ts:55](https://github.com/XcooBee/payment-sdk-js/blob/c035332/src/types.ts#L55)*
+*Defined in [types.ts:49](https://github.com/XcooBee/payment-sdk-js/blob/e97b844/src/types.ts#L49)*
 
 **Parameters:**
 

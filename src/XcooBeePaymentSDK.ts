@@ -1,5 +1,6 @@
+import { base64 } from "base64";
+
 import {
-  Base64Interface,
   DefaultPayUrlConfigType,
   ListPayUrlConfigType,
   ListWithCostPayUrlConfigType,
@@ -18,7 +19,7 @@ import {
 } from "./config";
 
 import { Builder } from "./Builder";
-import { Combinator } from "./Combinator";
+import { combineToJSON } from "./utils";
 
 /**
  * class XcooBeePaymentSDK
@@ -29,22 +30,14 @@ export class XcooBeePaymentSDK {
   private readonly deviceId?: string;
   private readonly xcoobeeDeviceId?: string;
   private readonly source?: string;
-  private base64: Base64Interface;
   private qrGenerator?: QrGeneratorInterface;
 
-  constructor(
-    config: PaymentSdkConfigType,
-    base64: Base64Interface,
-    qrGenerator?: QrGeneratorInterface
-  ) {
+  constructor(config: PaymentSdkConfigType, qrGenerator?: QrGeneratorInterface) {
     if (!config) {
       throw new Error("config is required");
     }
     if (!config.campaignId) {
       throw new Error("campaignId is required");
-    }
-    if (!base64) {
-      throw new Error("base64 is required");
     }
     if (config.xcoobeeDeviceId && config.xcoobeeDeviceId.length > maxDeviceIdLength) {
       throw new Error(`Max xcoobeeDeviceId length is ${maxDeviceIdLength}`);
@@ -67,7 +60,6 @@ export class XcooBeePaymentSDK {
     this.deviceId = config.deviceId;
     this.xcoobeeDeviceId = config.xcoobeeDeviceId;
     this.source = config.source;
-    this.base64 = base64;
     this.qrGenerator = qrGenerator;
   }
 
@@ -76,7 +68,7 @@ export class XcooBeePaymentSDK {
    *
    * @returns {QrGeneratorInterface}
    */
-  getQrGenerator(): QrGeneratorInterface {
+  private getQrGenerator(): QrGeneratorInterface {
     if (!this.qrGenerator) {
       throw new Error("qrGenerator was not provided");
     }
@@ -90,13 +82,13 @@ export class XcooBeePaymentSDK {
    * @param {Builder[]} flexItems
    * @returns {string}
    */
-  getUrl(flexItems: Builder[] = []): string {
-    const dataPackage = flexItems.length
-      ? this.base64.btoa(Combinator.combineToJSON(flexItems))
-      : "";
+  private getUrl(flexItems: Builder[] = []): string {
+    const dataPackage = flexItems.length ? base64.btoa(combineToJSON(flexItems)) : "";
 
     if (dataPackage.length > maxDataPackageSize) {
-      throw new Error("Data package is too large");
+      throw new Error(
+        `Data package is too large, max size: ${maxDataPackageSize}, received: ${dataPackage.length}`
+      );
     }
 
     const params = {

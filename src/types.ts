@@ -45,12 +45,6 @@ export type FlexItemHumanizedType = DefaultPayUrlConfigType & {
 export type SimpleListType = string[];
 export type ListWithCostType = [string, number][];
 
-export interface Base64Interface {
-  atob(base64: string): string;
-
-  btoa(content: string): string;
-}
-
 export interface QrGeneratorInterface {
   generate(url: string, size: number): Promise<string>;
 }

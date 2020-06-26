@@ -2,7 +2,7 @@ import { expect } from "chai";
 import "mocha";
 
 import { Builder } from "../src/Builder";
-import { Combinator } from "../src/Combinator";
+import { combine, combineToJSON } from "../src/utils";
 import { FlexPaymentActions } from "../src/types";
 
 describe("Combinator test", () => {
@@ -17,14 +17,14 @@ describe("Combinator test", () => {
     ]);
 
     expect(
-      Combinator.combine([total, tip, userEntry]).map((item) => item.toJSON())
+      combine([total, tip, userEntry]).map((item) => item.toJSON())
     ).to.be.deep.equal([
       { l: { a: FlexPaymentActions.setTip } },
       { "0-3": 12, l: { a: FlexPaymentActions.setTotal } },
     ]);
 
     expect(
-      Combinator.combine([tip, userEntry, checkBoxes]).map((item) => item.toJSON())
+      combine([tip, userEntry, checkBoxes]).map((item) => item.toJSON())
     ).to.be.deep.equal([
       { l: { a: FlexPaymentActions.setTip } },
       { "0-6": "User entry", l: { a: FlexPaymentActions.userEntry } },
@@ -40,7 +40,7 @@ describe("Combinator test", () => {
     const total = new Builder({ amount: 12 }).makeTotal();
     const tip = new Builder().makeTip();
 
-    expect(Combinator.combineToJSON([total, tip])).to.equal(
+    expect(combineToJSON([total, tip])).to.equal(
       JSON.stringify([
         { l: { a: FlexPaymentActions.setTip } },
         { "0-3": 12, l: { a: FlexPaymentActions.setTotal } },

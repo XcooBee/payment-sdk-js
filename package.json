@@ -26,10 +26,13 @@
   "module": "dist/node/node.js",
   "browser": "dist/browser/browser.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test": "ts-mocha -p tsconfig.json --paths tests/**/*.test.ts",
     "coverage": "nyc --check-coverage -r lcov -e .ts -x \"*.test.ts\" npm run test",
-    "docs": "rm -rf ./docs && typedoc",
-    "build": "tsc && tsc -p tsconfig.browser.json"
+    "docs-node": "typedoc --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/node --readme none",
+    "docs-web": "typedoc --tsconfig tsconfig.browser.json --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/browser --readme none",
+    "docs": "rm -rf ./docs && npm run docs-node && npm run docs-web",
+    "build": "ttsc && ttsc -p tsconfig.browser.json",
+    "build-web-example": "webpack examples/web/web.js -o examples/web/web.bundle.js"
   },
   "prettier": {
     "printWidth": 90,
@@ -51,6 +54,7 @@
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.13",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "chai": "^4.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
@@ -59,8 +63,10 @@
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "sinon": "^9.0.2",
-    "ts-node": "^8.10.2",
+    "ts-mocha": "^7.0.0",
+    "tsconfig-paths": "^3.9.0",
     "tslint": "^6.1.2",
+    "ttypescript": "^1.5.10",
     "typedoc": "^0.17.7",
     "typedoc-plugin-markdown": "^2.3.1",
     "typescript": "^3.9.5",

@@ -17,6 +17,7 @@ import {
 } from "./config";
 
 /**
+ * @internal
  * @class Builder
  */
 export class Builder {
@@ -298,7 +299,7 @@ export class Builder {
 
   /**
    * Makes current item a tip item
-   * This will render separte item in basket with tip inputs
+   * This will render separate item in basket with tip inputs
    *
    * @returns {Builder}
    */

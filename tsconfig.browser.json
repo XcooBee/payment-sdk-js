@@ -4,12 +4,21 @@
     "strictNullChecks": false,
     "strictFunctionTypes": false,
     "strict": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "outDir": "./dist/browser",
     "target": "es5",
     "module": "es2015",
     "lib": ["es2016", "dom", "es5"],
-    "declaration": true
+    "declaration": true,
+    "sourceMap": true,
+    "plugins": [
+      {
+        "transform": "@zerollup/ts-transform-paths"
+      }
+    ],
+    "paths": {
+      "base64": ["base64/browserBase64"]
+    }
   },
   "files": ["src/browser.ts"],
   "exclude": ["node_modules"]

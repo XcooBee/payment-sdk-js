@@ -4,8 +4,16 @@ import { expect } from "chai";
 import "mocha";
 import "mocha-sinon";
 
+import { base64 } from "base64";
+
 import { XcooBeePaymentSDK } from "../src/XcooBeePaymentSDK";
-import { appUrl, maxDeviceIdLength, maxSourceLength, urlMaxLength } from "../src/config";
+import {
+  appUrl,
+  maxDataPackageSize,
+  maxDeviceIdLength,
+  maxSourceLength,
+  urlMaxLength,
+} from "../src/config";
 import { Builder } from "../src/Builder";
 
 const mockedBase64 = {
@@ -21,13 +29,14 @@ const longString = new Array(201).fill("t").join("");
 const maxReferenceString = new Array(40).fill("t").join("");
 
 describe("XcooBeePaymentSDK test", () => {
+  beforeEach(function () {
+    this.sinon.stub(base64, "btoa").callsFake((str: string) => str);
+  });
+
   it("should create instance of XcooBeePaymentSDK", () => {
-    const sdk = new XcooBeePaymentSDK(
-      {
-        campaignId: "t",
-      },
-      mockedBase64
-    );
+    const sdk = new XcooBeePaymentSDK({
+      campaignId: "t",
+    });
 
     expect(sdk).to.be.instanceOf(XcooBeePaymentSDK);
   });
@@ -35,10 +44,11 @@ describe("XcooBeePaymentSDK test", () => {
   it("should warn when both deviceId and xcoobeeDeviceId provided", function () {
     this.sinon.stub(console, "warn");
 
-    const sdk = new XcooBeePaymentSDK(
-      { campaignId: "t", deviceId: "s", xcoobeeDeviceId: "s" },
-      mockedBase64
-    );
+    const sdk = new XcooBeePaymentSDK({
+      campaignId: "t",
+      deviceId: "s",
+      xcoobeeDeviceId: "s",
+    });
     // @ts-ignore
     expect(console.warn.calledOnce).to.true;
     expect(
@@ -51,46 +61,31 @@ describe("XcooBeePaymentSDK test", () => {
 
   it("should not create instance of XcooBeePaymentSDK", () => {
     try {
-      const sdk = new XcooBeePaymentSDK(null, null);
+      const sdk = new XcooBeePaymentSDK(null);
       expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("config is required");
     }
     try {
-      const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, null);
-      expect(false).to.be.true;
-    } catch (e) {
-      expect(e.message).to.equal("base64 is required");
-    }
-    try {
-      const sdk = new XcooBeePaymentSDK({ campaignId: null }, null);
+      const sdk = new XcooBeePaymentSDK({ campaignId: null });
       expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal("campaignId is required");
     }
     try {
-      const sdk = new XcooBeePaymentSDK(
-        { campaignId: "t", deviceId: longString },
-        mockedBase64
-      );
+      const sdk = new XcooBeePaymentSDK({ campaignId: "t", deviceId: longString });
       expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max deviceId length is ${maxDeviceIdLength}`);
     }
     try {
-      const sdk = new XcooBeePaymentSDK(
-        { campaignId: "t", xcoobeeDeviceId: longString },
-        mockedBase64
-      );
+      const sdk = new XcooBeePaymentSDK({ campaignId: "t", xcoobeeDeviceId: longString });
       expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max xcoobeeDeviceId length is ${maxDeviceIdLength}`);
     }
     try {
-      const sdk = new XcooBeePaymentSDK(
-        { campaignId: "t", source: longString },
-        mockedBase64
-      );
+      const sdk = new XcooBeePaymentSDK({ campaignId: "t", source: longString });
       expect(false).to.be.true;
     } catch (e) {
       expect(e.message).to.equal(`Max source length is ${maxSourceLength}`);
@@ -98,17 +93,13 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should get qr generator", () => {
-    const sdk = new XcooBeePaymentSDK(
-      { campaignId: "t" },
-      mockedBase64,
-      mockedQrGenerator
-    );
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedQrGenerator);
 
     expect(sdk.getQrGenerator()).to.equal(mockedQrGenerator);
   });
 
   it("should not get qr generator", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     try {
       sdk.getQrGenerator();
@@ -118,7 +109,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate url", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
     const total = new Builder().makeTotal();
 
     expect(sdk.getUrl([total])).to.equal(
@@ -127,41 +118,39 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should add deviceId", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t", deviceId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t", deviceId: "t" });
 
     expect(sdk.getUrl()).to.equal(`${appUrl}/securePay/t?ed=t`);
   });
 
   it("should add xcoobeeDeviceId", () => {
-    const sdk = new XcooBeePaymentSDK(
-      { campaignId: "t", deviceId: "t", xcoobeeDeviceId: "t" },
-      mockedBase64
-    );
+    const sdk = new XcooBeePaymentSDK({
+      campaignId: "t",
+      deviceId: "t",
+      xcoobeeDeviceId: "t",
+    });
 
     expect(sdk.getUrl()).to.equal(`${appUrl}/securePay/t?did=t`);
   });
 
   it("should add formId", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t", formId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t", formId: "t" });
 
     expect(sdk.getUrl()).to.equal(`${appUrl}/securePay/t/t`);
   });
 
   it("should add formId", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t", formId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t", formId: "t" });
 
     expect(sdk.getUrl()).to.equal(`${appUrl}/securePay/t/t`);
   });
 
   it("should not generate url", () => {
-    const sdk = new XcooBeePaymentSDK(
-      {
-        campaignId: longString,
-        formId: longString,
-        deviceId: new Array(200).fill("t").join(""),
-      },
-      mockedBase64
-    );
+    const sdk = new XcooBeePaymentSDK({
+      campaignId: longString,
+      formId: longString,
+      deviceId: new Array(200).fill("t").join(""),
+    });
     const tooLargeItem = new Builder({ amount: 1, reference: maxReferenceString })
       .addRadio(new Array(25).fill(maxReferenceString))
       .addRadioWithCost(new Array(25).fill([maxReferenceString, 1]))
@@ -174,7 +163,9 @@ describe("XcooBeePaymentSDK test", () => {
       sdk.getUrl([tooLargeItem]);
       expect(false).to.be.true;
     } catch (e) {
-      expect(e.message).to.equal("Data package is too large");
+      expect(e.message).to.equal(
+        `Data package is too large, max size: ${maxDataPackageSize}, received: 3433`
+      );
     }
     try {
       sdk.getUrl([largeItem]);
@@ -187,7 +178,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createPayUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(sdk.createPayUrl({ amount: 1 })).to.equal(
       `${appUrl}/securePay/t?d=[{"0-3":1,"l":{"a":10}}]`
@@ -195,7 +186,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createPayUrlWithTip", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(sdk.createPayUrlWithTip({ amount: 1 })).to.equal(
       `${appUrl}/securePay/t?d=[{"l":{"a":7}},{"0-3":1,"l":{"a":10}}]`
@@ -203,7 +194,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createSingleItemUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(sdk.createSingleItemUrl({ amount: 1, reference: "t" })).to.equal(
       `${appUrl}/securePay/t?d=[{"0-6":"t","l":{"a":9}}]`
@@ -211,7 +202,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createSingleSelectUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(
       sdk.createSingleSelectUrl({ amount: 1, reference: "t", options: ["t", "t"] })
@@ -219,7 +210,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createSingleSelectWithCostUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(
       sdk.createSingleSelectWithCostUrl({
@@ -231,7 +222,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createMultiSelectUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(
       sdk.createMultiSelectUrl({ amount: 1, reference: "t", options: ["t", "t"] })
@@ -239,7 +230,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createMultiSelectWithCostUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(
       sdk.createMultiSelectWithCostUrl({
@@ -251,7 +242,7 @@ describe("XcooBeePaymentSDK test", () => {
   });
 
   it("should generate createExternalReferenceUrl", () => {
-    const sdk = new XcooBeePaymentSDK({ campaignId: "t" }, mockedBase64);
+    const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(sdk.createExternalReferenceUrl("shoe")).to.equal(
       `${appUrl}/securePay/t?d=[{"l":{"a":8,"r":"shoe"}}]`
