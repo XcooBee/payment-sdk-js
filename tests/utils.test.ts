@@ -5,7 +5,7 @@ import { Builder } from "../src/Builder";
 import { combine, combineToJSON } from "../src/utils";
 import { FlexPaymentActions } from "../src/types";
 
-describe("Combinator test", () => {
+describe("Utils test", () => {
   it("should combine builders", () => {
     const total = new Builder({ amount: 12 }).makeTotal();
     const tip = new Builder().makeTip();
