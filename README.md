@@ -118,10 +118,10 @@ sdk
   });
 ```
 
-#### Example Apps
+#### Example App
 
-- [Web React JS Example](https://github.com/XcooBee/example-reactjs-xck-app)
-- [Mobile Ionic Framework](https://github.com/XcooBee/example-payment-sdk-ionic)
+- [Walk through creating Ionic App](https://www.xcoobee.com/contactless-payment-for-ionic-framework-in-minutes/)
+- [Mobile Ionic App Github](https://github.com/XcooBee/example-payment-sdk-ionic)
 
 #### Roundtrip notification
 
