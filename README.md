@@ -16,6 +16,8 @@ Touchless smart QRs can be used with users that are directly in vicinity of your
 
 You will need to setup a XcooBee Payment Request project in order to obtain test and or production campaign codes. You can setup a free [XcooBee Professional](https://app.xcoobee.net/auth/signup?level=professional) Account for this purpose and generate test keys.
 
+During the XcooBee account setup you will also be able to select your payment processor or setup one if needed.
+
 ## Installation
 
 ### Node
