@@ -118,6 +118,11 @@ sdk
   });
 ```
 
+#### Example Apps
+
+- [Web React JS Example](https://github.com/XcooBee/example-reactjs-xck-app)
+- [Mobile Ionic Framework](https://github.com/XcooBee/example-payment-sdk-ionic)
+
 #### Roundtrip notification
 
 Since end-users are using their own devices to complete payment you will need to setup an endpoint that can accept notification via webhook post from XcooBee. 
