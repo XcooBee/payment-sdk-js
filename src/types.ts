@@ -62,3 +62,12 @@ export type ListWithCostPayUrlConfigType = DefaultPayUrlConfigType & {
 };
 
 export type QrType = string | Promise<string>;
+
+/**
+ * @internal
+ */
+declare global {
+  interface Window {
+    XcooBee: any;
+  }
+}

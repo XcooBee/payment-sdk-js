@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <body>
-  <script src="./web.bundle.js"></script>
-  </body>
+<body>
+<script src="../../dist/browser/browser.min.js"></script>
+<script>
+  const sdk = new window.XcooBee.BrowserXcooBeePaymentSDK({ campaignId: "test", formId: "test" });
+
+  sdk.createPayQr({ amount: 123, reference: "Order" }, 300).then((qr) => {
+    const img = document.createElement("img");
+
+    img.src = qr;
+    document.body.appendChild(img);
+  });
+</script>
+</body>
 </html>

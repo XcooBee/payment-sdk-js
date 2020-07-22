@@ -53,8 +53,20 @@ const qrGenerator: QrGeneratorInterface = {
  * @class BrowserXcooBeePaymentSDK
  * @extends XcooBeePaymentSDK
  */
-export class BrowserXcooBeePaymentSDK extends XcooBeePaymentSDK {
+class BrowserXcooBeePaymentSDK extends XcooBeePaymentSDK {
   constructor(config: PaymentSdkConfigType) {
     super(config, qrGenerator);
   }
 }
+
+if (!window.XcooBee) {
+  window.XcooBee = {};
+}
+if (!window.XcooBee.BrowserXcooBeePaymentSDK) {
+  window.XcooBee.BrowserXcooBeePaymentSDK = BrowserXcooBeePaymentSDK;
+}
+if (!window.XcooBee.XcooBeePaymentSDK) {
+  window.XcooBee.XcooBeePaymentSDK = XcooBeePaymentSDK;
+}
+
+export { BrowserXcooBeePaymentSDK };

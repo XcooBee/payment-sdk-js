@@ -31,8 +31,8 @@
     "docs-node": "typedoc --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/node --readme none",
     "docs-web": "typedoc --tsconfig tsconfig.browser.json --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/browser --readme none",
     "docs": "rm -rf ./docs && npm run docs-node && npm run docs-web",
-    "build": "ttsc && ttsc -p tsconfig.browser.json",
-    "build-web-example": "webpack examples/web/web.js -o examples/web/web.bundle.js"
+    "build": "ttsc && ttsc -p tsconfig.browser.json && npm run minify-web",
+    "minify-web": "NODE_ENV=production webpack dist/browser/browser.js -o dist/browser/browser.min.js"
   },
   "prettier": {
     "printWidth": 90,
