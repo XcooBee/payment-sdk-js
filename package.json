@@ -32,7 +32,7 @@
     "docs-web": "typedoc --tsconfig tsconfig.browser.json --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/browser --readme none",
     "docs": "rm -rf ./docs && npm run docs-node && npm run docs-web",
     "build": "ttsc && ttsc -p tsconfig.browser.json && npm run minify-web",
-    "minify-web": "NODE_ENV=production webpack dist/browser/browser.js -o dist/browser/browser.min.js"
+    "minify-web": "cross-env NODE_ENV=production webpack dist/browser/browser.js -o dist/browser/xcoobee-pay-sdk.min.js"
   },
   "prettier": {
     "printWidth": 90,
@@ -74,6 +74,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "easyqrcodejs": "^3.7.0",
     "easyqrcodejs-nodejs": "^3.6.0"
   }
