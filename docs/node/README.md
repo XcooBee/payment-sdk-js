@@ -54,7 +54,7 @@
 
 Ƭ **DefaultPayUrlConfigType**: *object*
 
-*Defined in [types.ts:52](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L52)*
+*Defined in [types.ts:52](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L52)*
 
 #### Type declaration:
 
@@ -70,7 +70,7 @@ ___
 
 Ƭ **FlexItemHumanizedType**: *[DefaultPayUrlConfigType](README.md#defaultpayurlconfigtype) & object*
 
-*Defined in [types.ts:41](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L41)*
+*Defined in [types.ts:41](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L41)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 Ƭ **FlexItemType**: *object*
 
-*Defined in [types.ts:34](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L34)*
+*Defined in [types.ts:34](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L34)*
 
 #### Type declaration:
 
@@ -96,7 +96,7 @@ ___
 
 Ƭ **FlexLogicType**: *object*
 
-*Defined in [types.ts:26](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L26)*
+*Defined in [types.ts:26](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L26)*
 
 #### Type declaration:
 
@@ -116,7 +116,7 @@ ___
 
 Ƭ **ListPayUrlConfigType**: *[DefaultPayUrlConfigType](README.md#defaultpayurlconfigtype) & object*
 
-*Defined in [types.ts:58](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L58)*
+*Defined in [types.ts:58](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L58)*
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 Ƭ **ListWithCostPayUrlConfigType**: *[DefaultPayUrlConfigType](README.md#defaultpayurlconfigtype) & object*
 
-*Defined in [types.ts:60](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L60)*
+*Defined in [types.ts:60](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L60)*
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 Ƭ **ListWithCostType**: *[string, number][]*
 
-*Defined in [types.ts:46](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L46)*
+*Defined in [types.ts:46](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L46)*
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 Ƭ **LogicReferenceOptionType**: *string | [string, number]*
 
-*Defined in [types.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L22)*
+*Defined in [types.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L22)*
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 Ƭ **LogicReferenceType**: *string | [SimpleListType](README.md#simplelisttype) | [ListWithCostType](README.md#listwithcosttype)*
 
-*Defined in [types.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L24)*
+*Defined in [types.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L24)*
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 Ƭ **PaymentSdkConfigType**: *object*
 
-*Defined in [types.ts:14](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L14)*
+*Defined in [types.ts:14](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L14)*
 
 #### Type declaration:
 
@@ -176,7 +176,7 @@ ___
 
 Ƭ **QrType**: *string | Promise‹string›*
 
-*Defined in [types.ts:64](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L64)*
+*Defined in [types.ts:64](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L64)*
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 Ƭ **SimpleListType**: *string[]*
 
-*Defined in [types.ts:45](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/types.ts#L45)*
+*Defined in [types.ts:45](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/types.ts#L45)*
 
 ## Variables
 
@@ -192,7 +192,7 @@ ___
 
 • **defaultQrSize**: *450* = 450
 
-*Defined in [config.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L24)*
+*Defined in [config.ts:24](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L24)*
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 • **maxAmount**: *9999.99* = 9999.99
 
-*Defined in [config.ts:17](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L17)*
+*Defined in [config.ts:17](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L17)*
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 • **maxDataPackageSize**: *1800* = 1800
 
-*Defined in [config.ts:20](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L20)*
+*Defined in [config.ts:20](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L20)*
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 • **maxDeviceIdLength**: *200* = 200
 
-*Defined in [config.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L22)*
+*Defined in [config.ts:22](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L22)*
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 • **maxRefSize**: *40* = 40
 
-*Defined in [config.ts:18](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L18)*
+*Defined in [config.ts:18](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L18)*
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 • **maxSourceLength**: *10* = 10
 
-*Defined in [config.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L23)*
+*Defined in [config.ts:23](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L23)*
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 • **minAmount**: *0.05* = 0.05
 
-*Defined in [config.ts:16](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L16)*
+*Defined in [config.ts:16](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L16)*
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 • **optionsLimit**: *25* = 25
 
-*Defined in [config.ts:19](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L19)*
+*Defined in [config.ts:19](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L19)*
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 • **urlMaxLength**: *2048* = 2048
 
-*Defined in [config.ts:21](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/config.ts#L21)*
+*Defined in [config.ts:21](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/config.ts#L21)*
 
 ## Object literals
 
@@ -264,7 +264,7 @@ ___
 
 ### ▪ **qrGenerator**: *object*
 
-*Defined in [node.ts:12](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/node.ts#L12)*
+*Defined in [node.ts:12](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/node.ts#L12)*
 
 Implements node version of QrGeneratorInterface to generate QRs
 
@@ -274,7 +274,7 @@ Implements node version of QrGeneratorInterface to generate QRs
 
 ▸ **generate**(`url`: string, `size`: number): *Promise‹string›*
 
-*Defined in [node.ts:13](https://github.com/XcooBee/payment-sdk-js/blob/d9e95c7/src/node.ts#L13)*
+*Defined in [node.ts:13](https://github.com/XcooBee/payment-sdk-js/blob/53db2cc/src/node.ts#L13)*
 
 **Parameters:**
 

@@ -197,7 +197,7 @@ describe("XcooBeePaymentSDK test", () => {
     const sdk = new XcooBeePaymentSDK({ campaignId: "t" });
 
     expect(sdk.createSingleItemUrl({ amount: 1, reference: "t" })).to.equal(
-      `${appUrl}/securePay/t?d=[{"0-6":"t","l":{"a":9}}]`
+      `${appUrl}/securePay/t?d=[{"0-3":1,"0-6":"t"}]`
     );
   });
 
