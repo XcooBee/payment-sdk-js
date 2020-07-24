@@ -28,12 +28,21 @@ npm i @xcoobee/payment-sdk
 
 ### Web
 
+For simple use directly download the minified build from our CDN via script tag you can add async option. Placement in HTML header section before `<body>` tag.
+
+```
+<script src="https://app.xcoobee.net/scripts/sdk/xcoobee-pay-sdk.min.js"></script>
+
+```
+
+As an alternative you can build the browser yourself and distribute via your own webservers:
+
 ```
 npm i @xcoobee/payment-sdk
 ```
 
 
-Follow the install steps by build step to create distribution for web if needed. For node projects this is not needed.
+Follow the install steps with the build step to create distribution for web if needed. For node projects this is not needed.
 
 ```
 npm run build
@@ -42,7 +51,7 @@ npm run build
 
 ## Documentation
 
-The SDK life cycle is composed of standard class init via a contructor + configuration object followed by using the appropriate method to generate the type of pay URL or QR needed for your operation.
+The SDK life cycle is composed of standard class init via a constructor + configuration object followed by using the appropriate method to generate the type of pay URL or QR needed for your operation.
 
 #### Direct Check Out Methods
 
