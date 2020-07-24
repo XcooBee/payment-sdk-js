@@ -178,24 +178,24 @@ export class XcooBeePaymentSDK {
   }
 
   /**
-   * Create url to add single item to basket where user can enter amount for this item
+   * Create url to add single item to basket
    *
    * @throws {Error}
    * @param {DefaultPayUrlConfigType} config
    * @returns {string}
    */
   createSingleItemUrl(config: DefaultPayUrlConfigType): string {
-    const userEntry = new Builder({
+    const item = new Builder({
       amount: config.amount,
       tax: config.tax,
       reference: config.reference,
-    }).makeUserEntry();
+    });
 
-    return this.getUrl([userEntry]);
+    return this.getUrl([item]);
   }
 
   /**
-   * Create QR to add single item to basket where user can enter amount for this item
+   * Create QR to add single item to basket
    *
    * @throws {Error}
    * @param {DefaultPayUrlConfigType} config

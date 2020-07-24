@@ -25,7 +25,7 @@ export const defaultQrSize = 450;
 /**
  * @internal
  */
-export const appUrl = "https://app.xcoobee.com";
+export const appUrl = "https://app.xcoobee.net";
 /**
  * @internal
  */
