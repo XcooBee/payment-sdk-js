@@ -128,7 +128,6 @@ describe("Builder test", () => {
       ...testRaw,
       l: [
         { a: FlexPaymentActions.setTotal },
-        { a: FlexPaymentActions.addMaxOrFixed, M: 10, r: "Another Fee" },
         { a: FlexPaymentActions.addMaxOrFixed, M: 3, r: "Extra Fee" },
       ],
     });
