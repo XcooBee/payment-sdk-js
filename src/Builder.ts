@@ -281,7 +281,9 @@ export class Builder {
       );
     }
     this.logic = [
-      ...(item.r ? this.logic.filter((logicItem) => logicItem.r !== item.r) : this.logic),
+      ...this.logic.filter(
+        (logicItem) => logicItem.a !== item.a && (!item.r || logicItem.r !== item.r)
+      ),
       item,
     ];
     return this;
