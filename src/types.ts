@@ -17,6 +17,7 @@ export type PaymentSdkConfigType = {
   deviceId?: string;
   xcoobeeDeviceId?: string;
   source?: string;
+  appUrl?: string;
 };
 
 export type LogicReferenceOptionType = string | [string, number];
