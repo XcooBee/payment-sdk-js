@@ -30,6 +30,7 @@ export class XcooBeePaymentSDK {
   private readonly deviceId?: string;
   private readonly xcoobeeDeviceId?: string;
   private readonly source?: string;
+  private readonly appUrl?: string;
   private qrGenerator?: QrGeneratorInterface;
 
   constructor(config: PaymentSdkConfigType, qrGenerator?: QrGeneratorInterface) {
@@ -61,6 +62,7 @@ export class XcooBeePaymentSDK {
     this.xcoobeeDeviceId = config.xcoobeeDeviceId;
     this.source = config.source;
     this.qrGenerator = qrGenerator;
+    this.appUrl = config.appUrl || appUrl;
   }
 
   /**
@@ -105,7 +107,7 @@ export class XcooBeePaymentSDK {
       .filter((key) => params[key])
       .map((key) => `${key}=${params[key]}`)
       .join("&");
-    const url = `${appUrl}/securePay/${this.campaignId}${
+    const url = `${this.appUrl}/securePay/${this.campaignId}${
       this.formId ? `/${this.formId}` : ""
     }${queryString ? `?${queryString}` : ""}`;
 
