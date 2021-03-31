@@ -226,9 +226,9 @@ export class Builder {
     }
     if (
       !/(undefined|null|^$)/.test(String(this.amount)) &&
-      (this.amount < minAmount || this.amount > maxAmount)
+      (this.amount < 0 || this.amount > maxAmount)
     ) {
-      return `Amount must be in range ${minAmount} - ${maxAmount}`;
+      return `Amount must be in range 0 - ${maxAmount}`;
     }
     if (!this.reference) {
       if (

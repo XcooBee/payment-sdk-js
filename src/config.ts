@@ -13,7 +13,6 @@ export const conflictingActions = [
   FlexPaymentActions.setTip,
 ];
 
-export const minAmount = 0.05;
 export const maxAmount = 9999.99;
 export const maxRefSize = 40;
 export const optionsLimit = 25;
