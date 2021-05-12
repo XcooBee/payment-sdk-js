@@ -5,7 +5,7 @@ import "mocha";
 
 import { Builder } from "../src/Builder";
 
-import { maxAmount, maxRefSize, minAmount, optionsLimit } from "../src/config";
+import { maxAmount, maxRefSize, optionsLimit } from "../src/config";
 
 import { FlexPaymentActions } from "../src/types";
 
@@ -494,12 +494,7 @@ describe("Builder test", () => {
   it("should validate zero amount", () => {
     const zeroAmount = new Builder({ amount: 0, reference: "Test" });
 
-    try {
-      zeroAmount.toJSON();
-      expect(false).to.be.true;
-    } catch (e) {
-      expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
-    }
+    zeroAmount.toJSON();
   });
 
   it("should validate negative amount", () => {
@@ -509,7 +504,7 @@ describe("Builder test", () => {
       negativeAmount.toJSON();
       expect(false).to.be.true;
     } catch (e) {
-      expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
+      expect(e.message).to.equal(`Amount must be in range 0 - ${maxAmount}`);
     }
   });
 
@@ -520,7 +515,7 @@ describe("Builder test", () => {
       infinityAmount.toJSON();
       expect(false).to.be.true;
     } catch (e) {
-      expect(e.message).to.equal(`Amount must be in range ${minAmount} - ${maxAmount}`);
+      expect(e.message).to.equal(`Amount must be in range 0 - ${maxAmount}`);
     }
   });
 
