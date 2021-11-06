@@ -142,7 +142,10 @@ export class XcooBeePaymentSDK {
    * @param {number} [size = defaultQrSize]
    * @returns {QrType}
    */
-  createPayQr(config: DefaultPayUrlConfigType, size: number = defaultQrSize): QrType {
+  createPayQr(
+    config: DefaultPayUrlConfigType,
+    size: number = defaultQrSize
+  ): Promise<string> {
     return this.getQrGenerator().generate(this.createPayUrl(config), size);
   }
 

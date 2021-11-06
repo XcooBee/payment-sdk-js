@@ -62,7 +62,7 @@ export type ListWithCostPayUrlConfigType = DefaultPayUrlConfigType & {
   options: ListWithCostType;
 };
 
-export type QrType = string | Promise<string>;
+export type QrType = Promise<string>;
 
 /**
  * @internal

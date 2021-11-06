@@ -15,6 +15,7 @@ export const conflictingActions = [
 
 export const maxAmount = 9999.99;
 export const maxRefSize = 40;
+export const minAmount = 0.0;
 export const optionsLimit = 25;
 export const maxDataPackageSize = 1800;
 export const urlMaxLength = 2048;

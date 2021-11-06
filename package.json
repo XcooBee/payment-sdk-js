@@ -9,7 +9,7 @@
     "access": "public"
   },
   "license": "Apache-2.0",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "homepage": "https://github.com/XcooBee/payment-sdk-js#readme",
   "repository": {
@@ -32,7 +32,7 @@
     "docs-web": "typedoc --tsconfig tsconfig.browser.json --mode file --excludeNotExported --excludePrivate --stripInternal --out docs/browser --readme none",
     "docs": "rm -rf ./docs && npm run docs-node && npm run docs-web",
     "build": "ttsc && ttsc -p tsconfig.browser.json && npm run minify-web",
-    "minify-web": "cross-env NODE_ENV=production webpack dist/browser/browser.js -o dist/browser/xcoobee-pay-sdk.min.js"
+    "minify-web": "cross-env NODE_ENV=production GENERATE_SOURCEMAP=false webpack dist/browser/browser.js -o dist/browser/xcoobee-pay-sdk.min.js"
   },
   "prettier": {
     "printWidth": 90,
@@ -51,31 +51,31 @@
     ]
   },
   "devDependencies": {
-    "@types/chai": "^4.2.11",
+    "@types/chai": "^4.2.22",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.13",
+    "@types/node": "^14.17.32",
     "@zerollup/ts-transform-paths": "^1.7.18",
-    "chai": "^4.2.0",
-    "cross-env": "^7.0.2",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "mocha": "^8.0.1",
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "mocha": "^8.4.0",
     "mocha-sinon": "^2.1.2",
     "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
-    "sinon": "^9.0.2",
+    "prettier": "^2.4.1",
+    "sinon": "^9.2.4",
     "ts-mocha": "^7.0.0",
-    "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths": "^3.11.0",
     "tslint": "^6.1.2",
     "ttypescript": "^1.5.10",
     "typedoc": "^0.17.7",
     "typedoc-plugin-markdown": "^2.3.1",
-    "typescript": "^3.9.5",
-    "webpack": "^4.43.0",
+    "typescript": "^3.9.10",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "easyqrcodejs": "^3.7.0",
-    "easyqrcodejs-nodejs": "^3.6.0"
+    "easyqrcodejs": "^3.8.3",
+    "easyqrcodejs-nodejs": "^3.7.2"
   }
 }
