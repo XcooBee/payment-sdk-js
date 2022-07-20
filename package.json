@@ -68,7 +68,7 @@
     "tsconfig-paths": "^4.0.0",
     "tslint": "^6.1.2",
     "ttypescript": "^1.5.13",
-    "typedoc": "^0.17.7",
+    "typedoc": "^0.23.8",
     "typedoc-plugin-markdown": "^2.3.1",
     "typescript": "^3.9.10",
     "webpack": "^4.46.0",
